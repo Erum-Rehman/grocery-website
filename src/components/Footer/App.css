@@ -1,0 +1,111 @@
+.footer {
+    background-color: black;
+    width: 100%;
+    margin: 60px 0 0;
+    padding: 55px 45px;
+    display: flex;
+    flex-direction: column;
+}
+.container-footer {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-contact {
+    width: 24%;
+}
+.abt-heading {
+    color: aliceblue;
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.footer-contact p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 30px;
+    color: #adadad;
+    margin: 25px 0;
+}
+.contact-div {
+    display: flex;
+    padding: 0 0 25px 15px;
+}
+.phone {
+    color: white;
+    font-size: 23px;
+    margin-top: 10px;
+}
+.number {
+    color: #adadad;
+    padding: 0 0 0 10px;
+    cursor: pointer;
+}
+.footer-socialsite {
+    text-align: center;
+    width: 38%;
+}
+.footer-socialsite p {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    color: #efefef;
+    margin: 25px 0;
+}
+.footer-input {
+    width: 100%!important;
+    text-align: center;
+    background-color: black!important;
+}
+.footer-butn {
+    color: white!important;
+    background-color: #00896f!important;
+    border: 0px!important;
+    width: 22%;
+}
+.footer-butn:hover {
+    color: #00896f!important;
+    background-color: white!important;
+    border: 2px solid #00896f;
+}
+.social-list {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0!important;
+    margin: 50px;
+}
+.social {
+    color: white;
+   border-radius: 50%;
+   border: 1px dotted white;
+    width: 30px;
+    height: 30px;
+    font-size: 31px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    cursor: pointer;
+    margin: 0 7px;
+}
+.social:hover {
+    background-color: white;
+    color: black;
+}
+.rules {
+    color: white;
+    width: 20%;
+    float: right;
+}
+.terms {
+    list-style-type: none;
+    line-height: 2.5rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+.terms li:hover {
+    color: red;
+}

@@ -1,0 +1,119 @@
+.cart-table {
+    
+    width: 100%;
+    display: inline-table;
+    text-align: center;
+}
+.table-head {
+    border-width: 2px;
+    border-color: #dee2e6;
+    border-collapse: collapse;
+    border-style: solid;
+    font-weight: 600;
+    font-size: large;
+}
+.table-head tr td {
+    border-width: 1px;
+    padding: 7px;
+}
+.table-body {
+    border-width: 2px!important;
+    border-color: #dee2e6!important;
+    border-collapse: collapse;
+    border-style: solid;
+}
+.table-body tr td {
+    border-width: 1px;
+    padding: 10px;
+}
+.del-icon {
+    border-radius: 50%;
+    color: #848484;
+    background-color: white;
+    box-shadow: 4px 8px 30px rgb(141 141 141 / 19%);
+    font-size: 3px;
+    padding: 6px;
+    width: 32px;
+    height: 26px;
+    cursor: pointer;
+}
+.del-icon:hover {
+    color: white;
+    background-color: #f96822;
+}
+.cart-image {
+    width: 50px;
+    height: 50px;
+}
+.prdt-name, .price {
+    color: #848484;
+}
+.dc-price, .subtotal {
+    color: #848484;
+    font-weight: 700;
+}
+.cart-container {
+    width: 83%;
+    margin: 40px auto 100px;
+}
+.checkout {
+    display: flex;
+    margin-bottom: 35px;
+}
+.coupon-input {
+    width: 30%;
+    display: flex;
+    border-width: 0px;
+    height: fit-content;
+    margin: 15px 25px 0 0;
+}
+.coupon-input:hover {
+    border: none!important;
+}
+.coupon-butn, .checkout-butn {
+    background-color: #f96822;
+    border: 1px solid #f96822!important;
+}
+.coupon-butn:hover, .checkout-butn:hover {
+    background-color: white;
+    color: #f96822ed;
+}
+table {
+    width: -webkit-fill-available;
+}
+.checkout-table {
+    width: 69%;
+}
+.card-checkout {
+    font-weight: 600;
+    font-size: 18px;
+}
+.card-shipping {
+    font-size: 14px;
+    font-weight: 400;
+    color: #848484;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+.cart-calculate {
+    color: orangered!important;
+    cursor: pointer;
+}
+.buttons {
+    display: flex;
+    margin-top: 30px;
+}
+.checkout-butn {
+    padding: 10px 20px;
+    font-size: 18px;
+}
+.continue {
+    text-decoration: none;
+    color: #f96822!important;
+    cursor: pointer;
+    padding: 12px 35px;
+    background-color: white!important;
+    border: none!important;
+    font-weight: 500;
+    font-size: 17px;
+}

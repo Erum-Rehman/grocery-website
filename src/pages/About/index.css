@@ -1,0 +1,143 @@
+.about-container {
+    width: 83%;
+    display: flex;
+    margin: 100px auto 0 auto;
+}
+img {
+    border-radius: 15px;
+}
+.about-para {
+    width: 53%;
+    margin: 10px 0 40px 45px;
+    box-shadow: 4px 8px 30px rgb(141 141 141 / 10%);
+    padding: 35px;
+    border-radius: 15px;
+    height: 730px;
+}
+h3 {
+    font-size: 30px;
+    font-weight: 800;
+    font-family: manrope,sans-serif;
+    color: #00152b;
+    margin-bottom: 10px;
+    line-height: 45px;
+}
+.para-abt {
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: work sans,sans-serif;
+    color: #848484;
+    line-height: 1.7;
+    padding-bottom: 30px;
+}
+.stamp {
+   display: inline-block;
+    margin-bottom: 30px;
+    align-items: center;
+    max-width: 100%;
+    height: auto;
+    margin: 0 10px;
+    box-shadow: 4px 8px 30px rgb(141 141 141 / 10%);
+}
+.stp-img {
+    background: #fff;
+    border-radius: 5px;
+    padding: 13px;
+}
+.read-butn {
+    position: absolute;
+    height: 52px;
+    width: 10%;
+    min-width: 11%;
+    font-size: 18px;
+    border-radius: 45px;
+    text-align: center;
+    background-color: orangered;
+    color: white;
+    padding: 10px 3px;
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+    margin: 35px 0;
+}
+.read-butn:hover {
+    color: orangered;
+    background-color: #fff;
+    border: 1px solid orangered;
+}
+.abt-video {
+    background-image: linear-gradient(rgba(0,43,70,0.7),rgba(0,43,70,0.7)) ,url(../../images/inner-banner.jpg);
+    width: 100%;
+    object-fit: cover;
+    display: flex;
+    border-radius: 8px;
+    padding: 168px;
+}
+.abt-vid-link {
+    margin-left: auto;
+    margin-right: auto;
+    color: #00152b;
+    font-size: 14px;
+    background-color: #fff;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    line-height: 32px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+.play {
+    color: orangered;
+    font-size: 20px;
+}
+.food-para {
+    text-align: center;
+    margin: 85px auto 15px;
+    color:#848484;
+    font-size: 16px;
+    font-weight: 400;
+}
+.service-head {
+    display: flex;
+}
+.service-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-top: 30px;
+}
+.row-service {
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: center;
+    align-items: center;
+}
+.Icon {
+    border: 1px solid #eee;
+    margin: 20px auto;
+    height: auto;
+    width: 16em;
+    text-align: center;
+    align-items: center;
+    padding: 26px 32px;
+}
+.Icon-title {
+    padding-top: 12px;
+    font-weight: 700;
+    font-size: 20px;
+}
+.read-more {
+    color: #505050;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+.read-more:hover {
+    color: orangered;
+    text-decoration: underline;
+}
