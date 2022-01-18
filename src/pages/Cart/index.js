@@ -5,23 +5,13 @@ import { TiTimes } from "react-icons/ti";
 import Footer from '../../components/Footer';
 import { InputGroup, FormControl, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Background from '../../components/Background';
 
 const Cart = () => {
     return (
         <>
             <Nav />
-            <div className="product-banner">
-                <div className="overlay-1">
-                    <h2 className="title">Cart</h2>
-                    <ol className="list">
-                        <li>Home</li>
-                        {/* <a  href="Home.js">Home</a> */}
-
-                        <li> Cart</li>
-                    </ol>
-
-                </div>
-            </div>
+           <Background title="Cart"/>
             <div className="about-container" >
                 <table className="cart-table">
                     <thead className="table-head">

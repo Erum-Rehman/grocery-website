@@ -1,0 +1,51 @@
+.main-container {
+    width: 83%;
+    display: flex;
+    margin: 50px auto 0 auto;
+}
+.contact-container {
+    box-shadow: 4px 8px 30px rgb(141 141 141 / 10%);
+    width: 100%;
+    padding: 40px 35px;
+}
+.contact-head {
+    text-align: center;
+    margin: 45px auto 12px;
+}
+.contact-cell {
+    margin-bottom: 25px;
+}
+label {
+    display: inline-block;
+}
+.contact-field {
+    width: 100%;
+    height: 50px;
+    padding: 0 20px;
+    line-height: 50px;
+    border: 1px solid#eee;
+    margin-top: 4px ;
+}
+.contact-msg {
+    width: 100%;
+    height: 70px;
+    padding: 0 20px;
+    line-height: 50px;
+    border: 1px solid#eee;
+    margin-top: 5px ;
+}
+.contact-msg:hover {
+    border: 1px solid#eee!important;
+}
+.msg-btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    color: white;
+    background-color: #f96822;
+    border: none;
+}
+.msg-btn:hover {
+    color: #f96822;
+    background-color: white;
+    border: 1px solid #f96822;
+}

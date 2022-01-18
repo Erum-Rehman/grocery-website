@@ -40,7 +40,7 @@ const Footer = () => {
                         </div>
                     </div>
                     <div className='footer-socialsite'>
-                        <div>
+                        <div className='footer-img'>
                             <img src={require("../../images/footer-logo.png")} alt="" style={{cursor: 'pointer'}}/>
                             <p>
                                 Register Now To Get Update On Promotion And Coupons. Don’t Worry! It’s Not Spam</p>

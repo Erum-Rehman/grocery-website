@@ -6,6 +6,7 @@ import Product from "../../components/Product/index";
 import Home from "../Home/Home";
 import Footer from '../../components/Footer';
 import services from "../../mock/services";
+import Background from '../../components/Background';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Dropdown, DropdownButton, SplitButton, ButtonGroup } from "react-bootstrap";
 
@@ -15,18 +16,7 @@ const Products = () => {
             <div>
                 <Nav />
             </div>
-            <div className="product-banner">
-                <div className="overlay-1">
-                    <h2 className="title">Product</h2>
-                    <ol className="list">
-                        <li>Home</li>
-                        {/* <a  href="Home.js">Home</a> */}
-
-                        <li> Product</li>
-                    </ol>
-
-                </div>
-            </div>
+           <Background title="Products"/>
             <div className="dropdown-container">
                 <div className="p-left">
                     <p>Showing 1-12 item</p>

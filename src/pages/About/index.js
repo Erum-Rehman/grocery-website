@@ -8,23 +8,13 @@ import categories from "../../mock/categories";
 import { BsFillPlayFill } from "react-icons/bs";
 import { textAlign } from "@mui/system";
 import serviceIcon from "../../mock/serviceIcon";
+import Background from '../../components/Background';
 
 const About = () => {
     return (
         <>
             <Nav />
-            <div className="product-banner">
-                <div className="overlay-1">
-                    <h2 className="title">About Us</h2>
-                    <ol className="list">
-                        <li>Home</li>
-                        {/* <a  href="Home.js">Home</a> */}
-
-                        <li> About Us</li>
-                    </ol>
-
-                </div>
-            </div>
+           <Background title="About Us"/>
             <div className="about-container">
                 <div className="about-img">
                     <img src={require("../../images/about-bg.jpg")} />

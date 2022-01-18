@@ -1,0 +1,23 @@
+.logout-container {
+    margin-left: 45px;
+    width: 75%;
+    /* padding: 50px 30px 35px; */
+    height: auto;
+    display: flex;
+}
+.user-info {
+    box-shadow: 4px 8px 30px rgb(141 141 141 / 19%);
+    padding: 30px;
+    margin-right: 17px;
+    width: 50%;
+}
+.info {
+    color: #848484;
+    margin-top: 17px;
+    line-height: 2rem;
+}
+.user-info ul {
+    list-style-type: none;
+    padding-left: 0!important;
+}
+

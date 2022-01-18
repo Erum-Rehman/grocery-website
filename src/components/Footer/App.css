@@ -14,6 +14,8 @@
 }
 .footer-contact {
     width: 24%;
+    display: flex;
+    flex-direction: column;
 }
 .abt-heading {
     color: aliceblue;
@@ -45,7 +47,10 @@
 .footer-socialsite {
     text-align: center;
     width: 38%;
+    display: flex;
+    flex-direction: column;
 }
+
 .footer-socialsite p {
     font-weight: 500;
     font-size: 18px;
@@ -76,6 +81,7 @@
     align-items: center;
     margin-left: 0!important;
     margin: 50px;
+    /* padding-left: 0!important; */
 }
 .social {
     color: white;
@@ -99,12 +105,15 @@
     color: white;
     width: 20%;
     float: right;
+    display: flex;
+    flex-direction: column;
 }
 .terms {
     list-style-type: none;
     line-height: 2.5rem;
     font-weight: 500;
     cursor: pointer;
+    padding-left: 0!important;
 }
 .terms li:hover {
     color: red;
