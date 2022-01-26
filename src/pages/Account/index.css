@@ -1,6 +1,6 @@
 .account-container {
     display: flex;
-    width: 100%;
+    width: -webkit-fill-available;
     margin-bottom: 50px;
 }
 .account-reference {
@@ -34,8 +34,8 @@
 .account-preferences {
     box-shadow: 4px 8px 30px rgb(141 141 141 / 19%);
     margin-left: 45px;
-    width: 75%;
-    padding: 50px 30px 35px;
+    width: 95%;
+    padding: 45px 30px 35px;
     height: auto;
 }
 .notification-div {
@@ -64,4 +64,11 @@
     color: #505050;
     font-size: 22px;
     padding-top: 6px;
+}
+.dashboard-preferences {
+    box-shadow: 4px 8px 30px rgb(141 141 141 / 19%);
+    margin-left: 45px;
+    width: 71%;
+    padding: 50px 30px 35px;
+    height: auto;
 }

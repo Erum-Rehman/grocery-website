@@ -4,7 +4,6 @@ import './index.css';
 const Logout = () => {
     return (
         <>
-            <div className="about-container">
                 <div className="logout-container">
                     <div className="user-info">
                         <h5>Billing Address</h5>
@@ -44,7 +43,6 @@ const Logout = () => {
                             </p>
                     </div>
                 </div>
-            </div>
 
         </>
     )

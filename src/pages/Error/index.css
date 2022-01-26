@@ -1,0 +1,31 @@
+.error-container {
+    display: flex;
+    width: 42%;
+    flex-direction: column;
+    margin: 100px auto;
+}
+.error {
+    display: flex;
+    /* margin: 100px 0; */
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.error-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+} 
+.error-para {
+    font-size: 1rem;
+    font-family: work sans,sans-serif;
+    color: #848484;
+    line-height: 1.7;
+    padding: 10px 5px 30px;
+}
+.error-icon {
+    font-size: larger;
+    margin: 0 3px 3px 0;
+}

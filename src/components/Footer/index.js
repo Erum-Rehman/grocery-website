@@ -54,7 +54,8 @@ const Footer = () => {
                             <Button id="button-addon2" className='footer-butn'>
                                 Button
                             </Button>
-                        </InputGroup></div>
+                        </InputGroup>
+                        </div>
                         <div>
                             <ul className="social-list">
                                 <li><GrFacebookOption className='social'/></li>

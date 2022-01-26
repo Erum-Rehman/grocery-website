@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import './index.css';
-import Nav from '../../components/Navbar/Nav'
 import { TiTimes } from "react-icons/ti";
 import Footer from '../../components/Footer';
 import { InputGroup, FormControl, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Background from '../../components/Background';
+import ButnField from "../../components/Button";
+import Home from "../Home/Home";
 
 const Cart = () => {
     return (
         <>
-            <Nav />
            <Background title="Cart"/>
             <div className="about-container" >
                 <table className="cart-table">
@@ -104,17 +104,13 @@ const Cart = () => {
                     </tbody>
                 </table>
                 <div className="buttons">
-                <Button id="button-addon2" className='checkout-butn'>
-                        Proceed to Checkout
-                    </Button>
-                    <Button className="continue">
-                    <a >Continue to Shopping</a></Button>
+               <ButnField title="Proceed to Checkout"/>
+                    <a href="/">Continue to Shopping</a>
                     </div>
                 </div>
                 </div>
                
             </div>
-            <Footer/>
         </>
     )
 }

@@ -26,15 +26,15 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 15px 30px;
+    padding: 15px 43px 7px;
     position: sticky;
     top: 0;
+    background-color: white;
+    z-index: 100;
   }
+  
   .logo {
     margin-bottom: 10px;
-  }
-  .nav-logo {
-    justify-content: center;
   }
   .nav-items {
     display: flex;
@@ -42,12 +42,108 @@
     list-style-type: none;
     font-size: 16px;
     padding-left: 0rem!important;
+    margin: 4px;
   }
-  li {
-    padding-left: 25px;
+  
+  .nav-items li {
+    padding-left: 25px!important;
+
+  }
+  .nav-items li a {
+    color: #264653!important;
+    text-decoration: none;
   }
   .category {
     font-size: 20px;
    
   }
-  
+  .page-header {
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 33px 52px 18px;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 100;
+  }
+  .product-search {
+    width: 42%;
+  }
+  .nav-butn {
+    background-color: #264653!important;
+    padding: 0px 23px!important;
+    font-size: 20px!important;
+  }
+  .nav-butn:hover {
+    color: #264653!important;
+    background-color: white!important;
+  }
+  .icon-bar {
+    display: flex;
+  }
+  .nav-icons {
+    font-size: 24px;
+    color: #264653;
+    margin-right: 20px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .nav-phone {
+    font-size: 28px;
+    margin-top: 8px;
+  }
+  .nav-contact {
+    display: flex;
+  }
+  .numbers {
+    cursor: pointer;
+  }
+  .line-number {
+    font-size: 13px;
+    font-weight: 500;
+    color: #adadad;
+  }
+  p {
+    margin-bottom: 0!important;
+  }
+  .dropdown {
+    border: none!important;
+  }
+  .nav-items .btn {
+    padding: 0!important;
+    color: #264653!important;
+    font-size: 1rem!important;
+    font-weight: 600!important;
+  }
+  .nav-items .btn:hover {
+    color: #00896f!important;
+  }
+  .nav-items .btn:focus {
+    box-shadow: none!important;
+  }
+  .nav-items .dropdown-menu {
+    border-top: 3px solid #00896f!important;
+  }
+  .nav-items li a {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .nav-items li a:hover {
+    color: #00896f!important;
+  }
+  .nav-items .dropdown-item {
+    border-bottom: 1px solid rgba(0,0,0,.09);
+    padding: 8px 10px;
+  }
+  .nav-items .dropdown-item:last-child {
+    border-bottom: none;
+  }
+  .nav-items .dropdown-item:hover {
+    color: #00896f!important;
+    background-color: white;
+  }
+  .nav-items .dropdown-item:active {
+    background-color: white;
+  }

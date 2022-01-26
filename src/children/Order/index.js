@@ -5,7 +5,6 @@ import { FiEye } from "react-icons/fi";
 const Order = () => {
     return (
         <>
-            <div className="about-container">
                 <div className="account-container">
                     <div className="account-preferences col-lg-9">
                         <table className="order-table">
@@ -47,7 +46,6 @@ const Order = () => {
                         </table>
                     </div>
                 </div>
-            </div>
         </>
     )
 }

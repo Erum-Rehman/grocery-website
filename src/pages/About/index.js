@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import './index.css';
-import Nav from '../../components/Navbar/Nav'
 import Footer from '../../components/Footer';
 import stamp from "../../mock/stamp";
 import services from "../../mock/services";
@@ -13,8 +12,7 @@ import Background from '../../components/Background';
 const About = () => {
     return (
         <>
-            <Nav />
-           <Background title="About Us"/>
+            <Background title="About Us" />
             <div className="about-container">
                 <div className="about-img">
                     <img src={require("../../images/about-bg.jpg")} />
@@ -42,6 +40,7 @@ const About = () => {
                         </div>)
                     }
                     <a href="" className="read-butn">READ MORE</a>
+
                 </div>
             </div>
             <div className="about-container">
@@ -52,21 +51,21 @@ const About = () => {
                 </div>
 
             </div>
-           
+
             <p className="food-para">Food Is Always Fresh</p>
-                <h2 style={{textAlign: 'center', fontWeight: '700'}}>Why Choose Us</h2>
+            <h2 style={{ textAlign: 'center', fontWeight: '700' }}>Why Choose Us</h2>
             <div className="body">
                 <div className="service-container">
-                        {
-                            serviceIcon.map(servicesIcon => <div className="Icon">
-                                {<div>
-                                    {servicesIcon.icon}
-                                </div>}
-                                <h5 className="Icon-title">{servicesIcon.name}</h5>
-                                <p style={{ color: 'grey', fontSize: '15px', fontWeight: '400' }}>{servicesIcon.para}</p>
-                                <a className="read-more">Read More</a>
-                            </div>)
-                        }
+                    {
+                        serviceIcon.map(servicesIcon => <div className="Icon">
+                            {<div>
+                                {servicesIcon.icon}
+                            </div>}
+                            <h5 className="Icon-title">{servicesIcon.name}</h5>
+                            <p style={{ color: 'grey', fontSize: '15px', fontWeight: '400' }}>{servicesIcon.para}</p>
+                            <a className="read-more">Read More</a>
+                        </div>)
+                    }
                 </div>
             </div>
             <div className="body">
@@ -76,7 +75,7 @@ const About = () => {
                             services.map(service => <div className="services">
                                 {<div>
                                     {service.icon}
-                                </div>}<br/>
+                                </div>}<br />
                                 <h5 className="services-title">{service.name}</h5>
                                 <p style={{ color: 'grey', fontSize: '14px', fontWeight: '500' }}>{service.para}</p>
                             </div>)
@@ -84,7 +83,6 @@ const About = () => {
                     </div>
                 </div>
             </div>
-            <Footer/>
         </>
     )
 }

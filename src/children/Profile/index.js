@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import './index.css';
-import { Button } from 'react-bootstrap';
+import { Button, InputGroup, FormControl } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { FiEyeOff } from "react-icons/fi";
+import ButnField from "../../components/Button";
 
 const Profile = () => {
     return (
         <>
-            <div className="about-container">
                 <div className="account-container">
                     <div className="account-preferences col-lg-9">
-                        <h5 className="profile" style={{marginBotton: '5px'}}>Profile</h5>
+                        <h5 className="profile" style={{ marginBotton: '5px' }}>Profile</h5>
                         <div className="contact-cell">
                             <label>First Name *</label><br />
                             <input type="text" placeholder="Your first name" className="contact-field" />
@@ -28,7 +29,7 @@ const Profile = () => {
                         </div>
                         <div className="contact-cell">
                             <label>Address *</label><br />
-                            <input type="email" placeholder="enter your email" className="contact-field" />
+                            <input type="email" placeholder="enter your address" className="contact-field" />
                         </div>
                         <div className="contact-cell">
                             <label>City *</label><br />
@@ -56,18 +57,30 @@ const Profile = () => {
                         </div>
                         <div className="contact-cell">
                             <label>Password *</label><br />
-                            <input type="email" placeholder="enter your email" className="contact-field" />
+                            <InputGroup type="email" placeholder="enter your email">
+                            <FormControl
+                                placeholder="*************"
+                                aria-label="*************"
+                                aria-describedby="basic-addon2"
+                            />
+                             <FiEyeOff />
+                        </InputGroup>
                         </div>
+                      
                         <div className="contact-cell">
                             <label>Confirm Password *</label><br />
-                            <input type="email" placeholder="enter your email" className="contact-field" />
+                            <InputGroup >
+                            <FormControl
+                                placeholder="*************"
+                                aria-label="*************"
+                            /> <FiEyeOff className="password-icon"/>
+                                </InputGroup>
+                           
+
                         </div>
-                        <Button id="button-addon2" className='msg-btn'>
-                            Save Changes
-                        </Button>
+                        <ButnField title="Save Changes"/>
                     </div>
                 </div>
-            </div>
         </>
     )
 }

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import './index.css';
-import Nav from '../../components/Navbar/Nav'
 // import { TiTimes } from "react-icons/ti";
 import Footer from '../../components/Footer';
 import { InputGroup, FormControl, Button } from 'react-bootstrap';
@@ -10,7 +9,6 @@ import Background from '../../components/Background';
 const Contact = () => {
     return (
         <>
-        <Nav/>
        <Background title="Contact Us"/>
         <h2 className="contact-head">Contact Us</h2>
         <p style={{textAlign: 'center', color: '#848484'}}>For all enquiries, please email us using the form below</p>
@@ -34,7 +32,6 @@ const Contact = () => {
                     </Button>
             </div>
         </div>
-        <Footer/>
         </>
     )
 }

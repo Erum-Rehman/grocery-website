@@ -26,10 +26,9 @@
 .list {
     display: flex;
     list-style-type: none;
-    /* top: 29px; */
-    top: 55%;
+    top: 57%;
     position: absolute;
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
     padding-left: 0!important;
 }
@@ -40,6 +39,18 @@
     content:var("<");
     
 }
-li {
+.bg-title {
     padding-left: 10px!important;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+a:hover {
+    color: white;
+}
+.arrow {
+    margin-left: 10px;
+    font-size: 13px;
+    margin-top: 7px;
 }

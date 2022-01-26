@@ -4,8 +4,7 @@ import product from '../../mock/product';
 const Product = () => {
     return (
         <>
-            <div className="body">
-                <div className="product-container">
+                
                     {
                         product.map((products) => (<div className="products">
                             {<div className="product-img">
@@ -17,9 +16,6 @@ const Product = () => {
 
                         </div>))
                     }
-
-                </div>
-            </div>
         </>
     )
 }

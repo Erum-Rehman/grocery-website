@@ -1,9 +1,16 @@
 .dropdown-container {
     display: flex;
-    width: 88%;
-   /* margin-top: 100px auto; */
-   margin: 100px auto 20px auto;
+    width: 85%;
+    margin: 100px auto 20px auto;
+    justify-content: space-between;
 }
 .drop-right  {
     display: flex;
+}
+.dropdown-popularity {
+    margin: 0 8px;
+    border: 1px solid #264653!important;
+}
+.p-left {
+    margin-left: 10px;
 }
