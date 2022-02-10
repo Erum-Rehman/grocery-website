@@ -21,10 +21,12 @@
     border-color: #dee2e6!important;
     border-collapse: collapse;
     border-style: solid;
+    text-align: -webkit-center;
 }
 .table-body tr td {
     border-width: 1px;
-    padding: 10px;
+    padding: 15px;
+    text-align: -webkit-center;
 }
 .del-icon {
     border-radius: 50%;
@@ -32,9 +34,9 @@
     background-color: white;
     box-shadow: 4px 8px 30px rgb(141 141 141 / 19%);
     font-size: 3px;
-    padding: 6px;
-    width: 32px;
-    height: 26px;
+    padding: 5px;
+    width: 30px;
+    height: 27px;
     cursor: pointer;
 }
 .del-icon:hover {
@@ -42,8 +44,8 @@
     background-color: #f96822;
 }
 .cart-image {
-    width: 50px;
-    height: 50px;
+    width: 50px!important;
+    height: 50px!important;
 }
 .prdt-name, .price {
     color: #848484;
@@ -51,6 +53,9 @@
 .dc-price, .subtotal {
     color: #848484;
     font-weight: 700;
+}
+.add-del {
+    padding: 9px 31px!important;
 }
 .cart-container {
     width: 83%;
@@ -88,12 +93,22 @@ table {
     font-weight: 600;
     font-size: 18px;
 }
+.card-checkout ul li {
+    list-style-type: none;
+}
 .card-shipping {
     font-size: 14px;
     font-weight: 400;
     color: #848484;
     margin-bottom: 10px;
     line-height: 1.6;
+}
+.card-shipping ul li {
+    list-style-type: none;
+}
+.card-shipping ul {
+    text-align: left!important;
+    padding-left: 0!important;
 }
 .cart-calculate {
     color: orangered!important;
@@ -107,7 +122,7 @@ table {
     padding: 10px 20px;
     font-size: 18px;
 }
-.buttons a{
+.cont-shopping{
     text-decoration: none;
     color: #f96822!important;
     cursor: pointer;

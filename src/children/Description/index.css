@@ -1,0 +1,11 @@
+.description-para {
+    box-shadow: 4px 8px 30px rgb(141 141 141 / 19%);
+    margin-left: 45px;
+    width: -webkit-fill-available;
+    padding: 30px;
+    text-align: justify;
+}
+.description-para p {
+    color: #848484;
+    line-height: 2rem;
+}

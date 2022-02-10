@@ -7,8 +7,16 @@ import Product from "../../components/Product";
 import services from "../../mock/services";
 import Footer from '../../components/Footer';
 import Services from "../../components/Services";
+import { Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Products from '../Products';
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Home = () => {
+    const navigate = useNavigate();
+
+    useSelector(state => console.log({state}))
 
     return (
         <>
@@ -16,7 +24,9 @@ const Home = () => {
                 <div className="img">
                     <h1 className="shop">Bengal Vegetable Farm <br /> Organic 100%</h1>
                     <p className="p-img">Up to 50% off, Only This Week Don’t Miss !</p>
-                    <a href="" className="shop-butn">Shop Now</a>
+                    <Button id="button-addon2" className="shop-butn" onClick={() => navigate("/product")}>
+                        Shop Now
+                    </Button>
 
                 </div>
             </div>
@@ -70,7 +80,9 @@ const Home = () => {
                 <div className="img-offer" >
                     <div className="overlay">
                         <h2 >Weekly Special Offers on Vegetable</h2>
-                        <a href="" className="shop-butn2">Shop Now</a>
+                        <Button id="button-addon2" className="shop-butn2" onClick={() => navigate("/product")}>
+                            Shop Now
+                        </Button>
                     </div>
                 </div>
             </div>

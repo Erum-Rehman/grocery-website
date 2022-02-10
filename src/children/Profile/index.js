@@ -4,6 +4,7 @@ import { Button, InputGroup, FormControl } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FiEyeOff } from "react-icons/fi";
 import ButnField from "../../components/Button";
+import { FiEye } from "react-icons/fi";
 
 const Profile = () => {
     return (
@@ -63,7 +64,7 @@ const Profile = () => {
                                 aria-label="*************"
                                 aria-describedby="basic-addon2"
                             />
-                             <FiEyeOff />
+                             <label className="password-profile"><FiEye /></label>
                         </InputGroup>
                         </div>
                       
@@ -73,7 +74,7 @@ const Profile = () => {
                             <FormControl
                                 placeholder="*************"
                                 aria-label="*************"
-                            /> <FiEyeOff className="password-icon"/>
+                            />  <label className="password-profile"><FiEye /></label>
                                 </InputGroup>
                            
 

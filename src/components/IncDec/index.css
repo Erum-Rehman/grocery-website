@@ -1,0 +1,11 @@
+.add-remove-container {
+    display: flex;
+    background-color: #eee;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 4px;
+    padding: 3px 0px;
+}
+.add-remove-container button {
+    border: 0!important;
+}

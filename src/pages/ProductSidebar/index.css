@@ -64,6 +64,9 @@
 }
 .sale-container {
     display: flex;
+    width: 26%;
+    margin: 14px 0;
+    height: 12%;
 }
 .sale-content {
     margin: 0 14px;

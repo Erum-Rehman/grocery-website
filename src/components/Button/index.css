@@ -4,8 +4,14 @@
     color: white;
     background-color: #f96822;
     border: 1px solid #f96822!important;
+    font-weight: 600;
 }
 .butn-field1:hover {
     background-color: white;
     color: #f96822ed;
+}
+.butn-field1:focus {
+    background-color: #f96822!important;
+    border: none!important;
+    color: white!important;
 }

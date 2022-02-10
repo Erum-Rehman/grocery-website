@@ -7,6 +7,7 @@ import Background from '../../components/Background';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Dropdown, DropdownButton, SplitButton, ButtonGroup } from "react-bootstrap";
 import { Button } from "bootstrap";
+import Rating from "../../components/Rating";
 
 const ProductSidebar = () => {
     return (
@@ -94,6 +95,7 @@ const ProductSidebar = () => {
                         </div>
                         <div className="sale-content">
                             <p className="sale-title">Organic Fruit Fresh Strawnerry</p>
+                            <Rating />
                             <div>
                                 <span className="old-price">$45.36</span>
                                 <span className="new-price">$35.36</span>
@@ -106,6 +108,7 @@ const ProductSidebar = () => {
                         </div>
                         <div className="sale-content">
                             <p className="sale-title">Organic Fruit Fresh Strawnerry</p>
+                            <Rating />
                             <div>
                                 <span className="old-price">$45.36</span>
                                 <span className="new-price">$35.36</span>
@@ -118,6 +121,7 @@ const ProductSidebar = () => {
                         </div>
                         <div className="sale-content">
                             <p className="sale-title">Organic Fruit Fresh Strawnerry</p>
+                            <Rating />
                             <div>
                                 <span className="old-price">$45.36</span>
                                 <span className="new-price">$35.36</span>
@@ -129,48 +133,16 @@ const ProductSidebar = () => {
                         <h4 >PRODUCT TAG</h4>
                     </div>
 
-                        <ul className="category-btn">
-                            <li>
-                            <a className='butn-field2'>
-                                Food
-                            </a>
-                            </li>
-                            <li>
-                            <a className='butn-field2'>
-                                Organic
-                            </a>
-                            </li>
-                            <li>
-                            <a className='butn-field2'>
-                                Coffee
-                            </a>
-                            </li>
-                            <li>
-                            <a className='butn-field2'>
-                                100% Dry
-                            </a>
-                            </li>
-                            <li>
-                            <a className='butn-field2'>
-                                Fresh
-                            </a>
-                            </li>
-                            <li>
-                            <a className='butn-field2'>
-                                Bag
-                            </a>
-                            </li>
-                            <li>
-                            <a className='butn-field2'>
-                                Vegetable
-                            </a>
-                            </li>
-                            <li>
-                            <a className='butn-field2'>
-                                Green
-                            </a>
-                            </li>
-                        </ul>
+                    <ul className="category-btn">
+                        <li><a className='butn-field2'> Food </a> </li>
+                        <li><a className='butn-field2'> Organic </a> </li>
+                        <li><a className='butn-field2'> Coffee </a> </li>
+                        <li><a className='butn-field2'> 100% Dry </a> </li>
+                        <li><a className='butn-field2'> Fresh </a> </li>
+                        <li><a className='butn-field2'> Bag </a> </li>
+                        <li><a className='butn-field2'> Vegetable </a> </li>
+                        <li><a className='butn-field2'> Green </a> </li>
+                    </ul>
                 </div>
             </div>
 

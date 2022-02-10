@@ -26,7 +26,7 @@ const Account = () => {
         <Background title="My Account"/>
         <div className="about-container">
             <div className="account-container">
-                <div className="account-reference col-lg-3">
+                <div className="account-reference">
                
                 <Button id="button-addon2" className='account-butn' onClick={() => navigate("/dashboard")}>
                         <BiTachometer className="account-icons"/>

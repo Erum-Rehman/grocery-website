@@ -5,20 +5,13 @@
   }
   
   .menu {
-    margin: 0 5px 10px 0px;
+    margin: 0 10px 0 0;
     cursor: pointer;
-    border: 2px solid white;
     padding: 4px;
-    width: 49px!important;
+    width: 40px!important;
     height: 40px!important;
-    border-radius: 60%;
-    background: #eee;
     font-size: 0px!important;
     text-decoration: none;
-}
-.menu:hover {
-  background-color: #00896f;
-  color: white;
 }
   .main-header {
     color: black;
@@ -97,9 +90,38 @@
   .nav-contact {
     display: flex;
   }
-  .numbers {
+  .main-header-icons {
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+  .cart-count {
+    width: 18px;
+    line-height: 20px;
+    background: #264653;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    position: absolute;
+    top: 15px;
+    right: 55px;
+}
+.cart-count-2 {
+  width: 18px;
+  line-height: 20px;
+  background: #264653;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  position: absolute;
+  top: 22px;
+  margin-left: 16px;
+}
   .line-number {
     font-size: 13px;
     font-weight: 500;

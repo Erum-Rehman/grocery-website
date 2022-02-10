@@ -9,10 +9,12 @@ import { AiOutlineUser,AiOutlineShoppingCart } from "react-icons/ai";
 import { BiPhoneCall } from "react-icons/bi";
 import Home from '../../pages/Home/Home';
 import { Link,useNavigate } from 'react-router-dom';
+import { useSelector } from "react-redux";
 
 const PageNavbar = () => {
     const [isOpen, setIsOpen] = useState(false)
     const navigate = useNavigate();
+    const { cart: { totalPrice, products, quantity } } = useSelector(state => state);
     const handleDrawerClose = () => {
         setIsOpen(!isOpen)
     }
@@ -39,7 +41,10 @@ const PageNavbar = () => {
                     <div className='icon-bar'>
                     <AiOutlineUser className="nav-icons" onClick={() => navigate("/account")}/>
                     <MenuIcon className="nav-icons" onClick={handleDrawerClose} />
+                    <div>
                     <AiOutlineShoppingCart className="nav-icons"/>
+                    <div className='cart-count-2'>{quantity}</div>
+                    </div>
                     </div>
                     <div className="nav-contact">
                    

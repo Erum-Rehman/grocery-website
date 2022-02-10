@@ -47,12 +47,12 @@ const Footer = () => {
                         </div>
                         <div><InputGroup className="mb-3 footer-input">
                             <FormControl
-                                placeholder="Recipient's username"
-                                aria-label="Recipient's username"
+                                placeholder="Your Email"
+                                aria-label="Your Email"
                                 aria-describedby="basic-addon2"
                             />
                             <Button id="button-addon2" className='footer-butn'>
-                                Button
+                                Send
                             </Button>
                         </InputGroup>
                         </div>

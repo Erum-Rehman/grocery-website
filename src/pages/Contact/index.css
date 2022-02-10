@@ -14,6 +14,7 @@
 }
 .contact-cell {
     margin-bottom: 25px;
+    position: relative;
 }
 label {
     display: inline-block;
@@ -25,6 +26,7 @@ label {
     line-height: 50px;
     border: 1px solid#eee;
     margin-top: 4px ;
+    border-radius: 5px;
 }
 .contact-msg {
     width: 100%;
@@ -33,6 +35,7 @@ label {
     line-height: 50px;
     border: 1px solid#eee;
     margin-top: 5px ;
+    border-radius: 5px;
 }
 .contact-msg:hover {
     border: 1px solid#eee!important;
@@ -43,6 +46,7 @@ label {
     color: white;
     background-color: #f96822;
     border: none;
+    font-weight: 600;
 }
 .msg-btn:hover {
     color: #f96822;

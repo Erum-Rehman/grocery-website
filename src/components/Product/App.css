@@ -7,7 +7,7 @@
 
 .products {
     margin: 20px auto;
-    height: 22em;
+    height: auto;
     width: 17em;
     text-align: center;
     align-items: center;
@@ -25,11 +25,14 @@
     width: 100%;
     object-fit: cover;
 }
+.product-rating {
+    margin: 0 60px;
+}
 .product-butn {
     margin: 20px auto;
     height: 45px;
-    width: 178px;
-    font-size: 20px;
+    width: 174px;
+    font-size: 18px;
     border-radius: 50px;
     text-align: center;
     background-color: white;
@@ -41,4 +44,5 @@
 .product-butn:hover {
     background-color: #00896f;
     color: #fff;
+    font-weight: 500;
 }

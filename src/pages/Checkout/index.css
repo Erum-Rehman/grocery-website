@@ -1,0 +1,136 @@
+.checkout-container {
+    display: flex;
+    margin: 80px auto;
+    width: 85%;
+}
+.checkout-left {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+.billing-details {
+    box-shadow: 4px 8px 30px rgb(141 141 141 / 19%);
+    padding: 45px 30px 35px;
+    height: auto;
+    margin-bottom: 30px;
+}
+.billing-details h5, .shipping-details h5 {
+    font-weight: 700;
+}
+.checkout-right {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+.order-summary {
+    border: 1px solid #eee;
+    padding: 30px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+.order-side {
+    display: flex;
+    margin: 36px 0;
+    align-items: center;
+}
+.order-title {
+    color: #848484;
+    font-size: 16px;
+}
+.checkout-product {
+    display: flex;
+    align-items: center;
+    margin: 12px 0 0;
+}
+.checkout-inc {
+    width: 100%;
+    margin-right: 10px;
+}
+.cancel {
+    font-size: 45px;
+}
+.del-order {
+    border-radius: 50%;
+    color: #848484;
+    background-color: white;
+    box-shadow: 4px 8px 30px rgb(141 141 141 / 19%);
+    font-size: 3px;
+    padding: 5px;
+    width: 30px;
+    height: 27px;
+    cursor: pointer;
+    /* margin: 11px 10px 0 93px; */
+    position: absolute;
+    right: 10%;
+}
+.del-order:hover {
+    color: white;
+    background-color: #f96822;
+}
+.shipping-details {
+    box-shadow: 4px 8px 30px rgb(141 141 141 / 19%);
+    padding: 45px 30px 35px;
+    height: auto;
+}
+.subtotal {
+    border: 1px solid #eee;
+    padding: 30px 30px 20px;
+    margin: 0 0 30px 30px;
+    border-radius: 5px;
+}
+.subtotal h6 {
+    font-size: 18px;
+    color: black;
+    margin-bottom: 20px;
+}
+.tax {
+    display: flex;
+    color: black;
+    font-weight: 500;
+    justify-content: space-between;
+}
+.tax-inc {
+    display: flex;
+    color: #848484;
+    font-weight: 500;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+.payment-method label {
+    font-weight: 600;
+    font-size: 17px;
+}
+.payment-method p {
+    margin: 0 18px;
+    color: #848484;
+    line-height: 1.7;
+    font-size: 1rem;
+    padding-bottom: 20px;
+}
+.order-btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    color: white;
+    background-color: #f96822;
+    border: 1px solid #f96822!important;
+    font-weight: 600;
+    margin-left: 30px;
+    width: 47%;
+    border-radius: 5px;
+}
+.order-btn:hover {
+    background-color: white;
+    color: #f96822ed;
+}
+.order-btn:focus {
+    background-color: #f96822!important;
+    border: none!important;
+    color: white!important;
+}
+.conditions {
+    color: #f96822!important;
+    cursor: pointer;
+    margin-left: 25px;
+    font-size: 14px;
+}

@@ -3,7 +3,7 @@ import React, { Component } from "react";
 const Dashboard = () => {
     return (
         <>
-            <div className="dashboard-preferences col-lg-9">
+            <div className="dashboard-preferences">
 
                 <h5 style={{ textAlign: 'center' }}>Hi Erum Rehman</h5>
                 <div className="notification-div">

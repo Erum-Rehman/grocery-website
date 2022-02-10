@@ -12,7 +12,9 @@ const LoginForm = () => {
 
     return (
         <>
-            <Background title="Login" />
+            <Background 
+                title={location.pathname === "/register" ? "Registeration" : "Login" }
+            />
             <div className="Login-page">
                 <div className="login-btn">
                 <button className="butn-field" onClick={() => navigate("/register")}>Register</button>
