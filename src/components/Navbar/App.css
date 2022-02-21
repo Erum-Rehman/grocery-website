@@ -169,3 +169,6 @@
   .nav-items .dropdown-item:active {
     background-color: white;
   }
+  .sidebar-heading {
+    margin-right: 133px!important;
+  }

@@ -24,9 +24,9 @@ const Home = () => {
                 <div className="img">
                     <h1 className="shop">Bengal Vegetable Farm <br /> Organic 100%</h1>
                     <p className="p-img">Up to 50% off, Only This Week Don’t Miss !</p>
-                    <Button id="button-addon2" className="shop-butn" onClick={() => navigate("/product")}>
+                    <button id="button-addon2" className="shop-homebutn" onClick={() => navigate("/product")}>
                         Shop Now
-                    </Button>
+                    </button>
 
                 </div>
             </div>
@@ -80,9 +80,9 @@ const Home = () => {
                 <div className="img-offer" >
                     <div className="overlay">
                         <h2 >Weekly Special Offers on Vegetable</h2>
-                        <Button id="button-addon2" className="shop-butn2" onClick={() => navigate("/product")}>
+                        <button id="button-addon2" className="shop-butn2" onClick={() => navigate("/product")}>
                             Shop Now
-                        </Button>
+                        </button>
                     </div>
                 </div>
             </div>

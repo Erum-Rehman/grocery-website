@@ -3,6 +3,7 @@ import './index.css';
 import Footer from '../../components/Footer';
 import stamp from "../../mock/stamp";
 import services from "../../mock/services";
+import Services from "../../components/Services";
 import categories from "../../mock/categories";
 import { BsFillPlayFill } from "react-icons/bs";
 import { textAlign } from "@mui/system";
@@ -68,21 +69,7 @@ const About = () => {
                     }
                 </div>
             </div>
-            <div className="body">
-                <div className="container-category">
-                    <div className="row-category">
-                        {
-                            services.map(service => <div className="services">
-                                {<div>
-                                    {service.icon}
-                                </div>}<br />
-                                <h5 className="services-title">{service.name}</h5>
-                                <p style={{ color: 'grey', fontSize: '14px', fontWeight: '500' }}>{service.para}</p>
-                            </div>)
-                        }
-                    </div>
-                </div>
-            </div>
+            <Services/>
         </>
     )
 }

@@ -24,6 +24,7 @@ import description from '../src/children/Description';
 import Review from '../src/children/Review';
 import Rating from "./components/Rating";
 import IncDec from "./components/IncDec";
+import CartBag from './components/CartBag';
 
 function App() {
   return (
@@ -48,9 +49,9 @@ function App() {
             <Route path="/login" element={<LoginForm />} />
             <Route path="/register" element={<LoginForm />} />
             <Route path="/checkout" element={<Checkout />} />
-            <Route path="/incDec" element={<IncDec />} />
             <Route path="/productSidebar" element={<ProductSidebar />} />
-            <Route path="/productDetails" element={<ProductDetails />} />
+            <Route path="/productDetails/:id" element={<ProductDetails />} />
+            <Route path="/cartBag" element={<CartBag />} />
           </Routes>
         </div>
         <Footer />

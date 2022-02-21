@@ -14,3 +14,10 @@
 .p-left {
     margin-left: 10px;
 }
+.pagination-body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 65px 0 28px;
+}

@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Dropdown, DropdownButton, SplitButton, ButtonGroup } from "react-bootstrap";
 import { Button } from "bootstrap";
 import Rating from "../../components/Rating";
+import BasicPagination from "../../components/BasicPagination";
 
 const ProductSidebar = () => {
     return (
@@ -48,6 +49,9 @@ const ProductSidebar = () => {
             <div className="product-sidebar">
                 <div className="sidebar-container">
                     <Product />
+                    <div className="pagination-body">
+                        <BasicPagination />
+                    </div>
                 </div>
                 <div className="sidebar-options">
                     <h4 style={{ textAlign: 'left' }}>EXPLORE</h4>

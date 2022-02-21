@@ -9,10 +9,11 @@
     /* margin: 100px auto; */
 }
 .side-imgs {
-    width: 9%;
+    width: 20%;
 }
 .side-imgs img {
-    width: 100%;
+    width: 86px;
+    padding: 5px;
 }
 .side-imgs button {
     border: 1px solid #eee;
@@ -20,12 +21,14 @@
     margin: 15px 0;
 }
 .product-imgs {
-    width: 35%;
+    width: 82%;
     border: 1px solid #eee;
     margin: 10px 40px;
+    height: fit-content;
 }
 .product-imgs img {
-    width: 100%;
+    width: 360px;
+    padding: 20px;
 }
 .product-description h3 {
     font-weight: 600;

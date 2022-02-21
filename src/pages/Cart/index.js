@@ -6,20 +6,34 @@ import { InputGroup, FormControl, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Background from '../../components/Background';
 import ButnField from "../../components/Button";
+import { updateCart, removeFromCart } from '../../redux/Action';
 import Home from "../Home/Home";
 import { useLocation, useNavigate } from "react-router-dom";
 import Checkout from '../Checkout';
 import Products from "../Products";
 import products from '../../mock/product';
 import IncDec from "../../components/IncDec";
-import { IoIosAdd, IoIosRemove } from 'react-icons/io';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { Splitscreen } from "@mui/icons-material";
 
 const Cart = (props) => {
     const navigate = useNavigate();
-    const { cart: { totalPrice, products, quantity } } = useSelector(state => state);
-    console.log({ totalPrice, products, quantity })
+    const dispatch = useDispatch();
 
+    const increment = (item) => {
+        item.count = item.count ? item.count + 1 : 1;
+        dispatch(updateCart(item));
+    }
+
+    const decrement = (item) => {
+        item.count = item.count > 1 ? item.count - 1 : 1;
+        dispatch(updateCart(item));
+    }
+    const removeItem = (index) => {
+        dispatch(removeFromCart(index));
+    }
+
+    const { cart: { totalPrice, products, quantity } } = useSelector(state => state);
     return (
         <>
             <Background title="Cart" />
@@ -41,12 +55,16 @@ const Cart = (props) => {
                         {
                             products.map((item, index) => (
                                 <tr key={item}>
-                                    <td><TiTimes className="del-icon" /></td>
+                                    <td><TiTimes className="del-icon" onClick={() => removeItem(index)}/></td>
                                     <td className="cart-image" ><img src={item.image} className="cart-image" /></td>
                                     <td className="prdt-name">{item.name}</td>
                                     <td className="price">${item.oldPrice}/kg</td>
                                     <td className="dc-price">${item.discountPrice}/kg</td>
-                                    <td className="add-del"><IncDec /></td>
+                                    <td className="add-del">
+                                        <IncDec onClickAdd={() => increment(item)} 
+                                        onClickRemove={() => decrement(item)} 
+                                        count={item.count}/>
+                                    </td>
                                     <td className="subtotal">{item.totalPrice}</td>
                                 </tr>
                             ))
@@ -91,16 +109,16 @@ const Cart = (props) => {
                                             <li className="cart-calculate">Calculate Shopping</li>
                                         </ul>
                                     </td>
-                                   
-                                        <td className="card-checkout">
-                                            <ul>
-                                                <li> $Fee</li>
-                                                <li> $15</li>
-                                                <li> $15</li>
-                                                <li> $15</li>
-                                                <li>$5</li>
-                                            </ul>
-                                        </td>
+
+                                    <td className="card-checkout">
+                                        <ul>
+                                            <li> $Fee</li>
+                                            <li> $15</li>
+                                            <li> $15</li>
+                                            <li> $15</li>
+                                            <li>$5</li>
+                                        </ul>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td className="card-checkout">Subtotal</td>

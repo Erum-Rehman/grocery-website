@@ -1,0 +1,54 @@
+.cart-close {
+    font-size: 26px;
+    color: #fff;
+    margin-right: 10px;
+}
+.shopping-bag-body {
+    padding: 10px 17px 30px 20px;
+}
+.bag-items {
+    display: flex;
+    align-items: center;
+    padding: 10px 0 20px;
+}
+.bag-image {
+    width: 80px;
+    height: 71px;
+}
+.item-price {
+    display: flex;
+    align-items: center;
+}
+.del-item {
+    position: absolute;
+    left: 85%;
+}
+.item-name {
+    padding-left: 20px;
+    width: 195px;
+}
+.bag-item-count {
+    width: 37%;
+    margin-right: 9px;
+}
+
+.bag-heading {
+    color: #f96822;
+    font-size: 25px;
+    padding: 0 47% 0 0;
+}
+.bag-total {
+    margin: 40px 7px 30px 4px;
+    font-size: 18px;
+}
+.bag-total span {
+    font-size: 21px!important;
+    font-weight: 600!important;
+    float: right!important;
+    margin-top: -4px;
+}
+.bag-btns {
+    width: 100%;
+    display: grid;
+    margin: 23px 27px 30px 0px;
+}

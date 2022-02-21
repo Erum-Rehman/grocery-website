@@ -1,18 +1,48 @@
-import React, { Component } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import './index.css';
 import Background from '../../components/Background';
 import { InputGroup, FormControl, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Description from "../../children/Description";
 import Review from "../../children/Review";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Rating from "../../components/Rating";
 import Cart from "../Cart";
 import IncDec from "../../components/IncDec";
+import { useSelector, useDispatch } from "react-redux";
+import allProducts from "../../mock/product";
+import { updateCart } from '../../redux/Action';
 
 const ProductDetails = () => {
     const location = useLocation();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const [productData, setProductData] = useState({})
+    const { id } = useParams();
+    const increment = (item) => {
+        item.count = item.count ? item.count + 1 : 1;
+        dispatch(updateCart(item));
+    }
+
+    const decrement = (item) => {
+        item.count = item.count > 1 ? item.count - 1 : 1;
+        dispatch(updateCart(item));
+    }
+
+    useLayoutEffect(() => {
+        console.log({id}, allProducts)
+        const data = allProducts.find((item) => item.id === id);
+        const productCount = products.find((item) => item.id === id)?count: '0';
+        data.count = count ? count : data.count
+        setProductData(data)
+    }, []);
+
+    console.log({productData})
+
+    const { cart: { totalPrice, products, quantity } } = useSelector(state => state);
+    const { id: productId , image, image2, image3, image4, name, discountedPrice, description, button ,count} = productData;
+    // const { count } = products;
 
     return (
         <>
@@ -20,33 +50,36 @@ const ProductDetails = () => {
             <div className="imgs-detail">
                 <div className="side-imgs">
                     <button >
-                        <img src={require("../../images/big-apple.jpg")} />
+                        <img src={image} />
                     </button>
                     <button>
-                        <img src={require("../../images/big-apple.jpg")} />
+                        <img src={image} />
                     </button>
                     <button>
-                        <img src={require("../../images/big-apple.jpg")} />
+                        <img src={image} />
                     </button>
                 </div>
                 <div className="product-imgs">
-                    <img src={require("../../images/big-apple.jpg")} />
+                    <img src={image} />
                 </div>
                 <div className="product-description">
-                    <div className="review-rating"> 
+                    <div className="review-rating">
                         <Rating />
                         <span className="review">(32 Review)</span>
                     </div>
-                    <h3> Fresh Organic Vegetable Fruit</h3>
-                    <h4>$41.36</h4>
-                    <p>
-                        RIBCAGE STR ANK RAINBOW - B lue High-rise straight-leg jeans <br /> Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit, sed do<br /> eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
+                    <h3> {name}</h3>
+                    <h4>{discountedPrice}</h4>
+                    <p>{description}</p>
                     <div className="details-btn">
-                        <div className="product-inc"><IncDec/></div>
+                        <div className="product-inc">
+                            <IncDec
+                            onClickAdd={() => increment(count+1)}
+                            onClickRemove={() => decrement()}
+                            count={count}
+                            />
+                        </div>
                         <Button id="button-addon2" className='msg-btn' onClick={() => navigate("/cart")}>
-                            Add to Cart
+                            {button}
                         </Button>
                     </div>
 

@@ -6,6 +6,7 @@ import Services from "../../components/Services";
 import Background from '../../components/Background';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Dropdown, DropdownButton, SplitButton, ButtonGroup } from "react-bootstrap";
+import BasicPagination from "../../components/BasicPagination";
 
 const Products = () => {
     return (
@@ -47,6 +48,9 @@ const Products = () => {
                 <div className="product-container">
                     <Product />
                 </div>
+            </div>
+            <div className="pagination-body">
+                <BasicPagination />
             </div>
             <Services />
         </>

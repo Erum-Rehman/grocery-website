@@ -8,7 +8,7 @@ const INITIAL_STATE = {
 
 const cart = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case Types.ADD_ITEM_TO_CART:
+        case Types.UPDATE_CART:
             const cartItem = state.products.find((item) => item.id === action.payload.id)
             let updatedProducts;
             let total;
@@ -44,7 +44,18 @@ const cart = (state = INITIAL_STATE, action) => {
             }
         break;
 
-        // case Types.REMOVE_FROM_CART:
+        case Types.REMOVE_FROM_CART:
+            const allProducts = state.products;
+            allProducts.splice(action.payload, 1);
+            const updatedTotal = allProducts.reduce((acc, current) => acc + current.totalPrice, 0)
+            console.log({allProducts, action, updatedTotal})
+            return {
+                ...state,
+                products: [...allProducts],
+                quantity: allProducts.length,
+                totalPrice: updatedTotal
+            }
+        break;
 
         default:
             return state

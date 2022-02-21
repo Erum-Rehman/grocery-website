@@ -5,15 +5,19 @@ export default [
         name: 'Fresh Organic Nuts',
         oldPrice: 24,
         discountPrice: 20,
-        button: 'Add to cart'
+        button: 'Add to cart',
+        description: 'RIBCAGE STR ANK RAINBOW - B lue High-rise straight-leg jeans. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     },
     {
         id: '2',
         image: `${window.location.origin}/images/veg.png`,
+        image2: `${window.location.origin}/images/veg.png`,
+        image3: `${window.location.origin}/images/veg.png`,
         name: 'Vegetable Package',
         oldPrice: 24,
         discountPrice: 20,
-        button: 'Add to cart'
+        button: 'Add to cart',
+        description: 'RIBCAGE STR ANK RAINBOW - B lue High-rise straight-leg jeans. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     },
     {
         id: '3',
@@ -21,7 +25,8 @@ export default [
         name: 'Fresh Brocli',
         oldPrice: 24,
         discountPrice: 20,
-        button: 'Add to cart'
+        button: 'Add to cart',
+        description: 'RIBCAGE STR ANK RAINBOW - B lue High-rise straight-leg jeans. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     },
     {
         id: '4',
@@ -29,7 +34,8 @@ export default [
         name: 'Fresh Strawberry',
         oldPrice: 24,
         discountPrice: 20,
-        button: 'Add to cart'
+        button: 'Add to cart',
+        description: 'RIBCAGE STR ANK RAINBOW - B lue High-rise straight-leg jeans. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     },
     {
         id: '5',
@@ -37,7 +43,8 @@ export default [
         name: 'Fresh Pomegranate',
         oldPrice: 24,
         discountPrice: 20,
-        button: 'Add to cart'
+        button: 'Add to cart',
+        description: 'RIBCAGE STR ANK RAINBOW - B lue High-rise straight-leg jeans. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     },
     {
         id: '6',
@@ -45,15 +52,17 @@ export default [
         name: 'Organic Ginger',
         oldPrice: 24,
         discountPrice: 20,
-        button: 'Add to cart'
+        button: 'Add to cart',
+        description: 'RIBCAGE STR ANK RAINBOW - B lue High-rise straight-leg jeans. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     },
     {
         id: '7',
-        image: `${window.location.origin}/images/product-sm1.png`,
+        image: `${window.location.origin}/images/egg-plant.png`,
         name: 'Fresh Eggplant',
         oldPrice: 24,
         discountPrice: 20,
-        button: 'Add to cart'
+        button: 'Add to cart',
+        description: 'RIBCAGE STR ANK RAINBOW - B lue High-rise straight-leg jeans. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     },
     {
         id: '8',
@@ -61,7 +70,8 @@ export default [
         name: 'Fresh Coconut',
         oldPrice: 24,
         discountPrice: 20,
-        button: 'Add to cart'
+        button: 'Add to cart',
+        description: 'RIBCAGE STR ANK RAINBOW - B lue High-rise straight-leg jeans. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     },
     {
         id: '9',
@@ -69,7 +79,8 @@ export default [
         name: 'Sweet Mangoes',
         oldPrice: 24,
         discountPrice: 20,
-        button: 'Add to cart'
+        button: 'Add to cart',
+        description: 'RIBCAGE STR ANK RAINBOW - B lue High-rise straight-leg jeans. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     },
     {
         id: '10',
@@ -77,7 +88,8 @@ export default [
         name: 'Fresh Eggs',
         oldPrice: 24,
         discountPrice: 20,
-        button: 'Add to cart'
+        button: 'Add to cart',
+        description: 'RIBCAGE STR ANK RAINBOW - B lue High-rise straight-leg jeans. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     },
     {
         id: '11',
@@ -85,7 +97,8 @@ export default [
         name: 'Vegetable Basket',
         oldPrice: 24,
         discountPrice: 20,
-        button: 'Add to cart'
+        button: 'Add to cart',
+        description: 'RIBCAGE STR ANK RAINBOW - B lue High-rise straight-leg jeans. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     },
     {
         id: '12',
@@ -93,6 +106,7 @@ export default [
         name: '100% Dried red chilli',
         oldPrice: 24,
         discountPrice: 20,
-        button: 'Add to cart'
+        button: 'Add to cart',
+        description: 'RIBCAGE STR ANK RAINBOW - B lue High-rise straight-leg jeans. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     },
 ]

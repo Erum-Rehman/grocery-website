@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
-import PersistentDrawerLeft from '../Sidebar';
+import PersistentDrawerLeft from '../Sidebar/index.js';
+import PersistentDrawerRight from '../CartBag';
+import CartBag from '../CartBag';
 import MenuIcon from '@mui/icons-material/Menu';
 import { width } from '@mui/system';
 import Home from '../../pages/Home/Home';
@@ -25,13 +27,20 @@ import { useSelector } from "react-redux";
 const HomeNavbar = () => {
     const [isOpen, setIsOpen] = useState(false)
     const navigate = useNavigate();
+    const [iscartBag, setIsCartBag] = useState(false)
+
     const { cart: { totalPrice, products, quantity } } = useSelector(state => state);
-    const handleDrawerClose = () => {
+    const handleMenuClose = () => {
         setIsOpen(!isOpen)
     }
+    const handleCartClose = () => {
+        setIsCartBag(!iscartBag)
+    }
+
     return (
         <>
-            <PersistentDrawerLeft open={isOpen} handleDrawerClose={handleDrawerClose} />
+            <PersistentDrawerRight open={iscartBag} handleCartClose={handleCartClose}/>
+            <PersistentDrawerLeft open={isOpen} handleMenuClose={handleMenuClose} />
             <div className="main-header">
 
                 <div className="nav-logo">
@@ -51,7 +60,6 @@ const HomeNavbar = () => {
                             className="dropdown-shop"
                         >
                             <Dropdown.Item href="" ><Link to="/product">Product</Link></Dropdown.Item>
-                            <Dropdown.Item href=""><Link to="/productDetails">Product Details</Link></Dropdown.Item>
                             <Dropdown.Item href=""><Link to="/productSidebar">Product Sidebar</Link></Dropdown.Item>
                         </DropdownButton>
                     </li>
@@ -64,10 +72,7 @@ const HomeNavbar = () => {
                             variant="Light"
                             title={` Pages `}
                         >
-                            <Dropdown.Item href=""><Link to="/account">My Account</Link></Dropdown.Item>
-                            <Dropdown.Item href=""><Link to="/cart">Cart</Link></Dropdown.Item>
                             <Dropdown.Item href=""><Link to="/login">Login</Link></Dropdown.Item>
-                            <Dropdown.Item href=""><Link to="/checkout">Checkout</Link></Dropdown.Item>
                             <Dropdown.Item href=""><Link to="/error">Error</Link></Dropdown.Item>
                         </DropdownButton>
                     </li>
@@ -76,11 +81,11 @@ const HomeNavbar = () => {
                 </ul>
                 <div className="nav-contact">
                     <div className='main-header-icons'>
-                        <MenuIcon onClick={handleDrawerClose} className='menu' />
+                        <MenuIcon onClick={handleMenuClose} className='menu' />
 
                         <AiOutlineUser className="nav-icons" onClick={() => navigate("/account")} />
                         <div>
-                        <AiOutlineShoppingCart className="nav-icons"/>
+                        <AiOutlineShoppingCart className="nav-icons" onClick={handleCartClose}/>
                         <div className='cart-count'>{quantity}</div>
                         </div>
                     </div>

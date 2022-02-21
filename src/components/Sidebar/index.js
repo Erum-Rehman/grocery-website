@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './index.css';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -17,9 +18,16 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import Icons from '../../icons'
+import Icons from '../../icons';
+import { AiOutlineHome, AiOutlineShoppingCart, AiOutlineContacts } from "react-icons/ai";
+import { HiOutlineUsers } from "react-icons/hi";
+import { useLocation, Link } from "react-router-dom";
+import Home from '../../pages/Home/Home';
+import About from '../../pages/About';
+import Contact from '../../pages/Contact';
+import Products from '../../pages/Products';
 
-const drawerWidth = 240;
+  const drawerWidth = 180;
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -30,18 +38,36 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-export default function PersistentDrawerLeft({ handleDrawerClose, open }) {
+export default function PersistentDrawerLeft({ handleMenuClose, open }) {
   const theme = useTheme();
+  const location = useLocation();
 
+  const items = [
+    { name: 'Fruits & Vegetables', icon: 'FRUIT_VEGETABLE' },
+    { name: 'Meat & Fish', icon: 'MEAT_FISH' },
+    { name: 'Dairy Food', icon: 'DAIRY_FOOD' },
+    { name: 'Snacks & Beverages', icon: 'SNACKS_BEVERAGES' },
+    { name: 'Organic Foods', icon: 'ORGANIC_FOODS' },
+    { name: 'Pet Care', icon: 'PET_CARE' },
+    { name: 'Baby Care', icon: 'BABY_CARE' },
+    { name: 'Home Cleaning', icon: 'HOME_CLEANING' },
+    { name: 'Covid-19 Protection', icon: 'HOME_CLEANING' }
+  ];
+  const sideMenu = [
+    {name: 'Home', icon: <AiOutlineHome/>, Link: '../../pages/Home/Home'},
+    {name: 'About', icon: <HiOutlineUsers/>, path: '../../'},
+    {name: 'Products', icon: <AiOutlineShoppingCart/>},
+    {name: 'Contact', icon: <AiOutlineContacts/>},
+  ]
   return (
     <Box sx={{ display: 'flex' }}>
-      
+
       <Drawer
         sx={{
-          width: 400,
+          width: 362,
           flexShrink: 0,
           '& .MuiDrawer-paper': {
-            width: 400,
+            width: 350,
             boxSizing: 'border-box',
           },
         }}
@@ -49,27 +75,42 @@ export default function PersistentDrawerLeft({ handleDrawerClose, open }) {
         anchor="left"
         open={open}
       >
-        
-        <DrawerHeader>
-       
-          <IconButton onClick={handleDrawerClose}>
+        <DrawerHeader style={{ marginTop: '30px' }}>
+            {location.pathname === '/' ?
+          <h4 className='sidebar-heading'>All Category</h4>
+            :<div></div>
+        }
+          <IconButton onClick={handleMenuClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </DrawerHeader>
         <Divider />
-       
-        <List>
-       
-          {['Fruits & Vegetables', 'Meat & Fish', 'Dairy Food', 'Snacks & Beverages',
-           'Organic Foods', 'Pet Care', 'Baby Care', 'Home Cleaning', 'Covid-19 Protection'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {[Icons.FRUIT_VEGETABLE ]}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
+        {location.pathname === '/' ?
+          <List>
+            {items.map((item, index) => (
+              <ListItem button key={index}>
+                <ListItemIcon>
+                  {Icons[item.icon]}
+                </ListItemIcon>
+                <ListItemText primary={item.name} />
+              </ListItem>
+            ))}
+
+          </List>
+          : 
+          <List>
+            {sideMenu.map((item, index) => (
+              <ListItem button key={index}>
+                <ListItemIcon className='sidemenu-icon'>
+                  {item.icon}
+                </ListItemIcon>
+                <ListItemText primary={item.name} />
+              </ListItem>
+            ))}
+
+          </List>
+        }
+
         <Divider />
       </Drawer>
     </Box>

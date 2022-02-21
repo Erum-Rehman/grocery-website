@@ -4,25 +4,24 @@ import Rating from '../Rating';
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Cart from '../../pages/Cart';
-import { addToCart } from '../../redux/Action'
-import { useNavigate } from "react-router-dom";
+import { updateCart } from '../../redux/Action'
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 
 const Product = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-
     const addItem = (item) => {
         item.count = item.count ? item.count + 1 : 1;
-        dispatch(addToCart(item));
+        dispatch(updateCart(item));
     }
 
     return (
         <>
             {
                 products.map((item) => (
-                    <div className="products" key={item.id}>
+                    <div className="products" key={item.id} onClick={() => navigate(`/productDetails/${item.id}`)}>
                         {<div className="product-img">
                             <img src={item.image} />
                         </div>}
@@ -30,9 +29,9 @@ const Product = () => {
                         <span className="old-price">${item.oldPrice}/kg</span>
                         <span className="new-price">${item.discountPrice}/kg</span>
                         <div className='product-rating'> <Rating /></div>
-                        <Button id="button-addon2" className="product-butn" onClick={() => addItem(item)}>
+                        <button id="button-addon2" className="product-butn" onClick={() => addItem(item)}>
                             {item.button}
-                        </Button>
+                        </button>
                     </div>))
             }
         </>

@@ -38,7 +38,7 @@
     color: #00152b;
     font-family: manrope,sans-serif;
   }
-  .shop-butn  {
+  .shop-homebutn  {
     margin-left: 60px;
     height: auto;
     width: 12%;
@@ -84,7 +84,7 @@
       padding: 10px 3px;
       text-decoration: none;
   }
-  .shop-butn:hover, .search:hover {
+  .shop-homebutn:hover, .search:hover {
     background-color: white;
     color: #00896f;
   }

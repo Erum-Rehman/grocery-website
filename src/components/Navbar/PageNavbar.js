@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
-import PersistentDrawerLeft from '../Sidebar'
+import PersistentDrawerLeft from '../Sidebar';
+import PersistentDrawerRight from '../CartBag';
 import MenuIcon from '@mui/icons-material/Menu';
 import { width } from '@mui/system';
 import { InputGroup, FormControl, Button } from 'react-bootstrap';
@@ -13,14 +14,19 @@ import { useSelector } from "react-redux";
 
 const PageNavbar = () => {
     const [isOpen, setIsOpen] = useState(false)
+    const [iscartBag, setIsCartBag] = useState(false)
     const navigate = useNavigate();
     const { cart: { totalPrice, products, quantity } } = useSelector(state => state);
     const handleDrawerClose = () => {
         setIsOpen(!isOpen)
     }
+    const handleCartClose = () => {
+        setIsCartBag(!iscartBag)
+    }
     return (
         <>
             <PersistentDrawerLeft open={isOpen} handleDrawerClose={handleDrawerClose} />
+            <PersistentDrawerRight open={iscartBag} handleCartClose={handleCartClose}/>
                 <div className="page-header">
                     <div className="nav-logo">
                     <Link to="/">
@@ -42,7 +48,7 @@ const PageNavbar = () => {
                     <AiOutlineUser className="nav-icons" onClick={() => navigate("/account")}/>
                     <MenuIcon className="nav-icons" onClick={handleDrawerClose} />
                     <div>
-                    <AiOutlineShoppingCart className="nav-icons"/>
+                    <AiOutlineShoppingCart className="nav-icons" onClick={handleCartClose}/>
                     <div className='cart-count-2'>{quantity}</div>
                     </div>
                     </div>

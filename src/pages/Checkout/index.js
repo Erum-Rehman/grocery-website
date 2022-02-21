@@ -5,11 +5,25 @@ import { Button, InputGroup, FormControl } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { TiTimes } from "react-icons/ti";
 import IncDec from "../../components/IncDec";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { updateCart, removeFromCart } from '../../redux/Action';
 
 const Checkout = () => {
+    const dispatch = useDispatch();
     const { cart: { totalPrice, products, quantity } } = useSelector(state => state);
 
+    const increment = (item) => {
+        item.count = item.count ? item.count + 1 : 1;
+        dispatch(updateCart(item));
+    }
+
+    const decrement = (item) => {
+        item.count = item.count > 1 ? item.count - 1 : 1;
+        dispatch(updateCart(item));
+    }
+    const removeItem = (index) => {
+        dispatch(removeFromCart(index));
+    }
     return (
         <>
             <Background title="Checkout" />
@@ -86,13 +100,16 @@ const Checkout = () => {
                                 <div className="sale-content">
                                     <p className="order-title">{item.name}</p>
                                     <div className="checkout-product">
-                                        <div className="checkout-inc"><IncDec /></div>
-                                        <TiTimes className="cancel" />
+                                        <div className="checkout-inc">
+                                            <IncDec onClickAdd={() => increment(item)}
+                                                onClickRemove={() => decrement(item)}
+                                                count={item.count} /></div>
+                                        <TiTimes className="cancel"  />
                                         <span className="new-price">${item.discountPrice}/kg</span>
                                     </div>
 
                                 </div>
-                                <TiTimes className="del-order" />
+                                <TiTimes className="del-order" onClick={() => removeItem(index)}/>
                             </div>
                         ))}
                     </div>
