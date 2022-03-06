@@ -1,7 +1,16 @@
+@import '../../../src//responsive.scss';
+
 .product-sidebar {
     display: flex;
     width: 91%;
     margin: 0 72px;
+    @include respond-to(tablet-mini) {
+        margin: 0 33px;
+        flex-direction: column;
+      }
+      @include respond-to(mobile-small) {
+       flex-direction: column;
+      }
 }
 .sidebar {
     width: 45%!important;
@@ -10,12 +19,25 @@
     width: 28%;
     max-width: 100%;
     margin: 46px 0 10px 34px;
+    @include respond-to(mobile-small) {
+        width: 70%;
+        margin: 46px 0 10px 0;
+       }
+       @include respond-to(tablet-mini) {
+        width: 90%;
+    }
 }
 .sidebar-container {
     display: flex;
     flex-wrap: wrap;
     width: 85%;
     margin-top: 30px;
+    @include respond-to(tablet-mini) {
+        width: 100%;
+    }
+    @include respond-to(mobile-small) {
+        width: 90%;
+       }
 }
 .explore {
     margin: 35px 0;
@@ -24,6 +46,9 @@
     display: flex;
     justify-content: space-between;
     padding: 7px 50px 7px 20px;
+    @include respond-to(tablet-mini) {
+        padding: 7px 0px;
+    }
 }
 .explore-container h6 {
     font-size: 16px;
@@ -33,6 +58,10 @@
     display: flex;
     justify-content: space-between;
     padding: 25px 15px 25px 20px;
+    @include respond-to(tablet-mini) {
+        padding: 25px 15px 25px 0px;
+        justify-content: space-between;
+    }
 }
 .filter-butn {
     height: auto;
@@ -45,28 +74,48 @@
     background-color: #264653;
     color: white;
     padding: 5px;
+    text-decoration: none;
+    @include respond-to(tablet-mini) {
+        width: 15%;
+    }
 }
 .filter-price {
     display: flex;
     padding-left: 20px;
     width: 68%;
+    @include respond-to(tablet-mini) {
+        width: 30%;
+    }
 }
 .filter-price input {
     border: none;
 }
 .top-sale {
     margin: 14% 0;
+    @include respond-to(tablet-mini) {
+        margin: 4% 0;
+    }
 }
 .product-side {
     display: flex;
     margin: 30px 26px 10px;
     padding: 0 10px;
+    @include respond-to(tablet-mini) {
+        margin: 30px 0px 10px;
+        padding: 0;
+    }
 }
 .sale-container {
     display: flex;
     width: 26%;
     margin: 14px 0;
     height: 12%;
+    @include respond-to(tablet-mini) {
+       width: 12%;
+    }
+    @include respond-to(mobile-small) {
+        width: 26%;
+     }
 }
 .sale-content {
     margin: 0 14px;
@@ -89,6 +138,8 @@
 .category-btn {
     padding-left: 0!important;
     margin: 10px 20px 10px 12px;
+    @include respond-to(tablet-mini) {
+        margin: 10px 0;    }
 }
 .category-btn li {
     list-style-type: none;
@@ -102,9 +153,9 @@
     padding: 7px 10px;
     border-radius: 5px;
     font-size: 13px;
-}
-.butn-field2:hover {
-    color: white;
-    background-color: #f96822;
-    cursor: pointer;
+    &:hover {
+        color: white;
+        background-color: #f96822;
+        cursor: pointer;
+    }
 }

@@ -1,22 +1,22 @@
 import React, { Component } from "react";
-import './index.css'
+import './index.scss'
 import Icons from '../../icons';
 import categories from "../../mock/categories";
 import product from '../../mock/product';
 import Product from "../../components/Product";
 import services from "../../mock/services";
-import Footer from '../../components/Footer';
 import Services from "../../components/Services";
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Products from '../Products';
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Category from '../../components/Carousel';
 
 const Home = () => {
     const navigate = useNavigate();
 
-    useSelector(state => console.log({state}))
+    useSelector(state => console.log({ state }))
 
     return (
         <>
@@ -24,10 +24,11 @@ const Home = () => {
                 <div className="img">
                     <h1 className="shop">Bengal Vegetable Farm <br /> Organic 100%</h1>
                     <p className="p-img">Up to 50% off, Only This Week Don’t Miss !</p>
-                    <button id="button-addon2" className="shop-homebutn" onClick={() => navigate("/product")}>
-                        Shop Now
-                    </button>
-
+                    <div className="btn-div">
+                        <button id="button-addon2" className="shop-homebutn" onClick={() => navigate("/product")}>
+                            Shop Now
+                        </button>
+                    </div>
                 </div>
             </div>
             <div className="search_product">
@@ -37,7 +38,7 @@ const Home = () => {
             <h1 >
                 What do you looking for ?
             </h1>
-            <div className="body">
+            {/* <div className="body">
                 <div className="container-category">
                     <div className="row-category">
                         {
@@ -50,7 +51,8 @@ const Home = () => {
                         }
                     </div>
                 </div>
-            </div>
+            </div> */}
+            <Category/>
             <div className="body">
                 <div className="row-offer">
                     <div className="offer-card">
@@ -65,7 +67,7 @@ const Home = () => {
 
                 </div>
             </div>
-            <h1 >
+            <h1 className="seller-head">
                 Best Seller Grocery
             </h1>
             <p className="para">We Provide best Quality & fresh Grocery Iterm.</p>

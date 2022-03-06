@@ -1,18 +1,51 @@
+@import '../../../src//responsive.scss';
+
 .about-container {
     width: 83%;
     display: flex;
     margin: 100px auto 0 auto;
+    @include respond-to(tablet) {
+        width: 93%;
+        margin: 100px 35px 0 35px
+      }
+      @include respond-to(tablet-mini) {
+        width: 76%;
+        margin: 100px auto 0;
+        flex-direction: column;
+      }
+      @include respond-to(mobile-small) {
+        width: 90%;
+      }
 }
-img {
-    border-radius: 15px;
+.about-img {
+    @include respond-to(tablet) {
+        width: 52%;
+    }
+    @include respond-to(tablet-mini) {
+        width: 100%;
+    }
+    img {
+        border-radius: 15px;
+        @include respond-to(tablet) {
+            width: 100%;
+          }
+    }
 }
+
 .about-para {
     width: 53%;
     margin: 10px 0 0 45px;
-    box-shadow: 4px 8px 30px rgb(141 141 141 / 10%);
+    box-shadow: 4px 8px 30px rgba(141, 141, 141, 0.1);
     padding: 35px;
     border-radius: 15px;
     height: auto;
+    @include respond-to(tablet) {
+        margin: 10px 0 0 36px;
+      }
+      @include respond-to(tablet-mini) {
+        margin: 50px 0 0;
+        width: 100%;
+      }
 }
 h3 {
     font-size: 30px;
@@ -37,7 +70,7 @@ h3 {
     max-width: 100%;
     height: auto;
     margin: 0 10px;
-    box-shadow: 4px 8px 30px rgb(141 141 141 / 10%);
+    box-shadow: 4px 8px 30px rgba(141, 141, 141, 0.1);
 }
 .stp-img {
     background: #fff;
@@ -58,11 +91,14 @@ h3 {
     font-weight: 500;
     display: block;
     margin: 35px 0 0;
-}
-.read-butn:hover {
-    color: orangered;
-    background-color: #fff;
-    border: 1px solid orangered;
+    @include respond-to(mobile-small) {
+        width: 50%;
+      }
+    &:hover {
+        color: orangered;
+        background-color: #fff;
+        border: 1px solid orangered;
+    }
 }
 .abt-video {
     background-image: linear-gradient(rgba(0,43,70,0.7),rgba(0,43,70,0.7)) ,url(../../images/inner-banner.jpg);
@@ -106,8 +142,11 @@ h3 {
 .service-container {
     display: flex;
     flex-wrap: wrap;
-    width: 90%;
+    width: 94%;
     margin-top: 30px;
+    @include respond-to(laptop) {
+        width: 88%;
+      }
 }
 .row-service {
     display: flex;
@@ -123,6 +162,12 @@ h3 {
     text-align: center;
     align-items: center;
     padding: 26px 32px;
+    @include respond-to(laptop) {
+        margin: 20px 30px;
+      }
+      @include respond-to(tablet) {
+        margin: 20px auto;
+      }
 }
 .Icon-title {
     padding-top: 12px;
@@ -135,8 +180,8 @@ h3 {
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
-}
-.read-more:hover {
-    color: orangered;
-    text-decoration: underline;
+    &:hover {
+        color: orangered;
+        text-decoration: underline;
+    }
 }

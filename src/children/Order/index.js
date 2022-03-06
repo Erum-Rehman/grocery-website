@@ -1,51 +1,26 @@
-import React, { Component } from "react";
-import './index.css';
-import { FiEye } from "react-icons/fi";
+import React, { useState, useEffect } from 'react';
+import ScreenOrder from './ScreenOrder';
+import MobileOrder from './MobileOrder';
 
 const Order = () => {
+    const [width, setWidth] = useState(window.screen.width);
+
+    useEffect(() => {
+
+        window.addEventListener('resize', updateDimensions);
+
+        return () => {
+            window.removeEventListener('resize', updateDimensions);
+        }
+
+    }, [window.screen.width])
+
+    const updateDimensions = () => {
+        setWidth(window.screen.width)
+    };
     return (
         <>
-                <div className="account-container">
-                    <div className="account-preferences col-lg-9">
-                        <table className="order-table">
-                            <thead className="table-body">
-                                <tr>
-                                    <td className="card-checkout">Order Id</td>
-                                    <td className="card-checkout">Order Date</td>
-                                    <td className="card-checkout">Status</td>
-                                    <td className="card-checkout">Total</td>
-                                    <td className="card-checkout">Active</td>
-
-                                </tr>
-                            </thead>
-                            <tbody className="table-body">
-
-
-                                <tr>
-                                    <td className="card-shipping">#56986</td>
-                                    <td className="card-shipping">21 August 2021</td>
-                                    <td className="card-shipping">Pending</td>
-                                    <td className="card-shipping">$ 985. 0789.00 for 85 Items</td>
-                                    <td className="card-shipping"><FiEye /></td>
-                                </tr>
-                                <tr>
-                                    <td className="card-shipping">#56986</td>
-                                    <td className="card-shipping">21 August 2021</td>
-                                    <td className="card-shipping">Pending</td>
-                                    <td className="card-shipping">$ 985. 0789.00 for 85 Items</td>
-                                    <td className="card-shipping"><FiEye /></td>
-                                </tr>
-                                <tr>
-                                    <td className="card-shipping">#56986</td>
-                                    <td className="card-shipping">21 August 2021</td>
-                                    <td className="card-shipping">Pending</td>
-                                    <td className="card-shipping">$ 985. 0789.00 for 85 Items</td>
-                                    <td className="card-shipping"><FiEye /></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+            {width <= 499 ? <MobileOrder /> : <ScreenOrder />}
         </>
     )
 }

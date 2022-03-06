@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './index.css'
+import './index.scss'
 import Product from "../../components/Product";
 import Home from "../Home/Home";
 import Services from "../../components/Services";

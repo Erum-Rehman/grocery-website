@@ -6,7 +6,7 @@ const Services = () => {
         <>
          <div className="body">
                 <div className="container-category">
-                    <div className="row-category">
+                    <div className="service-category">
                         {
                             services.map(service => <div className="services">
                                 {<div>

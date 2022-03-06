@@ -1,8 +1,16 @@
+@import '../../../src//responsive.scss';
+
 .reviews {
     display: flex;
     flex-direction: column;
     margin-left: 45px;
     width: fit-content;
+    @include respond-to(mobile-small) {
+        margin: 15px 0px;
+     }
+     @include respond-to(tablet-mini) {
+        margin-left: 0;
+     }
 }
 .review-container {
     border: 1px solid #eee;
@@ -19,18 +27,27 @@
     border-radius: 50%;
     width: 7%;
     height: 10%;
+    @include respond-to(mobile-small) {
+        width: 20%;
+     }
 }
 .comment-head {
     margin-left: 23px;
 }
 .review-header h6 {
     font-size: 19px;
+    @include respond-to(mobile-small) {
+        font-size: 17px;
+     }
 }
 .review-header span {
     margin-left: 3px;
     color: #848484;
     font-size: 18px;
     font-weight: 500;
+    @include respond-to(mobile-small) {
+        font-size: 14px;
+     }
 }
 .rate-comment {
     margin-top: 10px;

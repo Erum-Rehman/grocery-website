@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './index.css';
+import './index.scss';
 import { AiOutlineLike, AiOutlineHeart } from "react-icons/ai";
 import { InputGroup, FormControl, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';

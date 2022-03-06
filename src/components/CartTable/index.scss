@@ -1,0 +1,27 @@
+@import '../../../src//responsive.scss';
+
+.mobile-cart {
+    margin: 20px 15px 0;
+    border: 1px solid #eee!important;
+}
+.cart-div {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #eee;
+    padding: 10px 15px;
+}
+.div-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-right: 48px;
+}
+.dp {
+    font-weight: 500;
+    color: #848484;
+}
+.cart-name {
+    color: #848484;
+}
+.mobile-qty {
+    width: 23%;
+}

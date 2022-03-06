@@ -1,5 +1,5 @@
-import * as React from 'react';
-import './index.css';
+import React, {useEffect, useState} from 'react';
+import './index.scss';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -27,7 +27,7 @@ import About from '../../pages/About';
 import Contact from '../../pages/Contact';
 import Products from '../../pages/Products';
 
-  const drawerWidth = 180;
+const drawerWidth = 180;
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -54,20 +54,35 @@ export default function PersistentDrawerLeft({ handleMenuClose, open }) {
     { name: 'Covid-19 Protection', icon: 'HOME_CLEANING' }
   ];
   const sideMenu = [
-    {name: 'Home', icon: <AiOutlineHome/>, Link: '../../pages/Home/Home'},
-    {name: 'About', icon: <HiOutlineUsers/>, path: '../../'},
-    {name: 'Products', icon: <AiOutlineShoppingCart/>},
-    {name: 'Contact', icon: <AiOutlineContacts/>},
+    { name: 'Home', icon: <AiOutlineHome />, Link: '../../pages/Home/Home' },
+    { name: 'About', icon: <HiOutlineUsers />, path: '../../' },
+    { name: 'Products', icon: <AiOutlineShoppingCart /> },
+    { name: 'Contact', icon: <AiOutlineContacts /> },
   ]
+  const [width, setWidth] = useState(window.screen.width);
+
+  useEffect(() => {
+
+    window.addEventListener('resize', updateDimensions);
+
+    return () => {
+      window.removeEventListener('resize', updateDimensions);
+    }
+
+  }, [window.screen.width])
+
+  const updateDimensions = () => {
+    setWidth(window.screen.width)
+  };
   return (
     <Box sx={{ display: 'flex' }}>
 
       <Drawer
         sx={{
-          width: 362,
+          width: 365,
           flexShrink: 0,
           '& .MuiDrawer-paper': {
-            width: 350,
+            width: 365,
             boxSizing: 'border-box',
           },
         }}
@@ -76,10 +91,10 @@ export default function PersistentDrawerLeft({ handleMenuClose, open }) {
         open={open}
       >
         <DrawerHeader style={{ marginTop: '30px' }}>
-            {location.pathname === '/' ?
-          <h4 className='sidebar-heading'>All Category</h4>
-            :<div></div>
-        }
+          {location.pathname === '/' ?
+            <h4 className='sidebar-heading'>All Category</h4>
+            : <div></div>
+          }
           <IconButton onClick={handleMenuClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
@@ -97,7 +112,7 @@ export default function PersistentDrawerLeft({ handleMenuClose, open }) {
             ))}
 
           </List>
-          : 
+          :width <= 499 ?
           <List>
             {sideMenu.map((item, index) => (
               <ListItem button key={index}>
@@ -109,8 +124,8 @@ export default function PersistentDrawerLeft({ handleMenuClose, open }) {
             ))}
 
           </List>
-        }
-
+        :<div></div>
+            }
         <Divider />
       </Drawer>
     </Box>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './index.css';
+import './index.scss';
 import Background from '../../components/Background';
 import { Button, InputGroup, FormControl } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -148,7 +148,7 @@ const Checkout = () => {
                                 Pay with cash upon delivery.
                             </p>
                         </div>
-                        <div className="payment-method">
+                        <div className="payment-method2">
                             <input type="checkbox" style={{ marginRight: '15px' }} />
                             <label style={{ color: "#505050", fontSize: '15px', fontWeight: '400' }}>
                                 I have read and agree to the website</label>

@@ -1,4 +1,4 @@
-import './App.css'
+import './index.scss'
 import products from '../../mock/product';
 import Rating from '../Rating';
 import { Button } from 'react-bootstrap';

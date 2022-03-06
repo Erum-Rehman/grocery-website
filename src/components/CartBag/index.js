@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './index.css';
+import './index.scss';
 import { TiTimes } from "react-icons/ti";
 import ButnField from '../../components/Button';
 import IncDec from "../../components/IncDec";
@@ -68,10 +68,10 @@ export default function PersistentDrawerRight({ handleCartClose, open }) {
 
             <Drawer
                 sx={{
-                    width: 402,
+                    width: 365,
                     flexShrink: 0,
                     '& .MuiDrawer-paper': {
-                        width: 402,
+                        width: 365,
                         boxSizing: 'border-box',
                     },
                 }}

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './index.css';
+import './index.scss';
 import Background from '../../components/Background';
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';

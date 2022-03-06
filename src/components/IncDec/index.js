@@ -1,4 +1,4 @@
-import './index.css';
+import './index.scss';
 import { IoIosAdd, IoIosRemove } from 'react-icons/io';
 import { useSelector } from "react-redux";
 

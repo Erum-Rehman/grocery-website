@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import './index.css';
-import Footer from '../../components/Footer';
+import './index.scss';
 import Background from '../../components/Background';
 import { InputGroup, FormControl, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,7 +8,7 @@ import { BiTachometer } from "react-icons/bi";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { FaUserCog } from "react-icons/fa";
 import { VscSignOut } from "react-icons/vsc";
-import Order from '../../children/Order';
+import Order from '../../children/Order/index';
 import { FiEye } from "react-icons/fi";
 import Profile from '../../children/Profile';
 import Dashboard from '../../children/Dashboard'
@@ -24,7 +23,7 @@ const Account = () => {
         
         <>
         <Background title="My Account"/>
-        <div className="about-container">
+        <div className="main-container">
             <div className="account-container">
                 <div className="account-reference">
                

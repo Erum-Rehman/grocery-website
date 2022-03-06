@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './index.css';
+import './index.scss';
 import { Button, InputGroup, FormControl } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FiEyeOff } from "react-icons/fi";

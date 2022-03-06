@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import './index.css';
-import Footer from '../../components/Footer';
+import './index.scss';
 import stamp from "../../mock/stamp";
 import services from "../../mock/services";
 import Services from "../../components/Services";

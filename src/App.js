@@ -8,7 +8,7 @@ import Cart from './pages/Cart';
 import Contact from './pages/Contact';
 import Checkout from './pages/Checkout';
 import Account from './pages/Account';
-import Footer from './components/Footer';
+import Footer from './components/Footer/index';
 import { Route, Routes } from "react-router-dom";
 import Error from './pages/Error';
 import Login from "./components/RegistrationLogin/Login";
@@ -25,6 +25,8 @@ import Review from '../src/children/Review';
 import Rating from "./components/Rating";
 import IncDec from "./components/IncDec";
 import CartBag from './components/CartBag';
+import Category from "./components/Carousel";
+import MobileCart from './components/CartTable/MobileCart'
 
 function App() {
   return (
@@ -51,7 +53,9 @@ function App() {
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/productSidebar" element={<ProductSidebar />} />
             <Route path="/productDetails/:id" element={<ProductDetails />} />
-            <Route path="/cartBag" element={<CartBag />} />
+            <Route path="/MobileCart" element={<MobileCart />} />
+            <Route path="/Category" element={<Category />} />
+
           </Routes>
         </div>
         <Footer />

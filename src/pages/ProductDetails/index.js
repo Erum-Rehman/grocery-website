@@ -1,5 +1,5 @@
 import React, { useState, useLayoutEffect } from "react";
-import './index.css';
+import './index.scss';
 import Background from '../../components/Background';
 import { InputGroup, FormControl, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -31,37 +31,40 @@ const ProductDetails = () => {
     }
 
     useLayoutEffect(() => {
-        console.log({id}, allProducts)
+        console.log({ id }, allProducts)
         const data = allProducts.find((item) => item.id === id);
-        const productCount = products.find((item) => item.id === id)?count: '0';
+        const productCount = products.find((item) => item.id === id) ? count : '0';
         data.count = count ? count : data.count
         setProductData(data)
     }, []);
 
-    console.log({productData})
+    console.log({ productData })
 
     const { cart: { totalPrice, products, quantity } } = useSelector(state => state);
-    const { id: productId , image, image2, image3, image4, name, discountedPrice, description, button ,count} = productData;
+    const { id: productId, image, image2, image3, image4, name, discountedPrice, description, button, count } = productData;
     // const { count } = products;
 
     return (
         <>
             <Background title="Product Details" />
             <div className="imgs-detail">
-                <div className="side-imgs">
-                    <button >
+                <div className="product-bar">
+                    <div className="side-imgs">
+                        <button >
+                            <img src={image} />
+                        </button>
+                        <button>
+                            <img src={image} />
+                        </button>
+                        <button>
+                            <img src={image} />
+                        </button>
+                    </div>
+                    <div className="product-imgs">
                         <img src={image} />
-                    </button>
-                    <button>
-                        <img src={image} />
-                    </button>
-                    <button>
-                        <img src={image} />
-                    </button>
+                    </div>
                 </div>
-                <div className="product-imgs">
-                    <img src={image} />
-                </div>
+
                 <div className="product-description">
                     <div className="review-rating">
                         <Rating />
@@ -73,9 +76,9 @@ const ProductDetails = () => {
                     <div className="details-btn">
                         <div className="product-inc">
                             <IncDec
-                            onClickAdd={() => increment(count+1)}
-                            onClickRemove={() => decrement()}
-                            count={count}
+                                onClickAdd={() => increment(count + 1)}
+                                onClickRemove={() => decrement()}
+                                count={count}
                             />
                         </div>
                         <Button id="button-addon2" className='msg-btn' onClick={() => navigate("/cart")}>
@@ -101,7 +104,7 @@ const ProductDetails = () => {
             </div>
 
             <h1 className="product-heading">Product Details</h1>
-            <div className="about-container">
+            <div className="details-container">
                 <div className="product-detail">
                     <div className="product-detail-btn">
                         <Button id="button-addon2" className='detail-butn2' onClick={() => navigate("/description")}>

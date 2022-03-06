@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './index.scss';
 import PersistentDrawerLeft from '../Sidebar';
 import PersistentDrawerRight from '../CartBag';
 import MenuIcon from '@mui/icons-material/Menu';

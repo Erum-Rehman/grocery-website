@@ -1,3 +1,5 @@
+@import '../../../src//responsive.scss';
+
 .body {
     width: 100%;
     display: flex;
@@ -12,8 +14,7 @@
     text-align: center;
     align-items: center;
     padding: 35px 32px 30px;
-    box-shadow: 4px 3px 30px rgb(141 141 141 / 10%);
-
+    box-shadow: 4px 8px 30px rgba(141, 141, 141, 0.1);
 }
 .product-title {
     margin: 15px 0 10px;
@@ -43,9 +44,9 @@
     border: 1px solid #00896f;
     color: #00896f;
     text-decoration: none;
-}
-.product-butn:hover {
-    background-color: #00896f;
-    color: #fff;
-    font-weight: 500;
+    &:hover {
+        background-color: #00896f;
+        color: #fff;
+        font-weight: 500;
+    }
 }

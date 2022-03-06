@@ -1,7 +1,6 @@
-import React, { Component } from "react";
-import './index.css';
+import React, { useState, useEffect } from "react";
+import './index.scss';
 import { TiTimes } from "react-icons/ti";
-import Footer from '../../components/Footer';
 import { InputGroup, FormControl, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Background from '../../components/Background';
@@ -13,10 +12,27 @@ import Checkout from '../Checkout';
 import Products from "../Products";
 import products from '../../mock/product';
 import IncDec from "../../components/IncDec";
+import MobileCart from "../../components/CartTable/MobileCart";
+import ScreenCart from '../../components/CartTable/ScreenCart';
 import { useSelector, useDispatch } from "react-redux";
 import { Splitscreen } from "@mui/icons-material";
 
 const Cart = (props) => {
+    const [width, setWidth] = useState(window.screen.width);
+
+  useEffect(() => {
+
+    window.addEventListener('resize', updateDimensions);
+
+    return () => {
+      window.removeEventListener('resize', updateDimensions);
+    }
+
+  }, [window.screen.width])
+
+  const updateDimensions = () => {
+    setWidth(window.screen.width)
+  };
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -37,43 +53,7 @@ const Cart = (props) => {
     return (
         <>
             <Background title="Cart" />
-            <div className="about-container" >
-                <table className="cart-table">
-                    <thead className="table-head">
-                        <tr>
-                            <td>Delete</td>
-                            <td>Image</td>
-                            <td>Product Name</td>
-                            <td>Unite Price</td>
-                            <td>Discount Price</td>
-                            <td>Quantity</td>
-                            <td>Subtotal</td>
-                        </tr>
-                    </thead>
-
-                    <tbody className="table-body">
-                        {
-                            products.map((item, index) => (
-                                <tr key={item}>
-                                    <td><TiTimes className="del-icon" onClick={() => removeItem(index)}/></td>
-                                    <td className="cart-image" ><img src={item.image} className="cart-image" /></td>
-                                    <td className="prdt-name">{item.name}</td>
-                                    <td className="price">${item.oldPrice}/kg</td>
-                                    <td className="dc-price">${item.discountPrice}/kg</td>
-                                    <td className="add-del">
-                                        <IncDec onClickAdd={() => increment(item)} 
-                                        onClickRemove={() => decrement(item)} 
-                                        count={item.count}/>
-                                    </td>
-                                    <td className="subtotal">{item.totalPrice}</td>
-                                </tr>
-                            ))
-                        }
-                    </tbody>
-                </table>
-
-
-            </div>
+            {width <= 499 ? <MobileCart /> : <ScreenCart />}
             <div className="cart-container" >
                 <h4> Coupon Code</h4>
                 <div className="checkout">
@@ -112,7 +92,7 @@ const Cart = (props) => {
 
                                     <td className="card-checkout">
                                         <ul>
-                                            <li> $Fee</li>
+                                            <li> ${200.00}</li>
                                             <li> $15</li>
                                             <li> $15</li>
                                             <li> $15</li>
@@ -123,7 +103,7 @@ const Cart = (props) => {
                                 <tr>
                                     <td className="card-checkout">Subtotal</td>
                                     <td></td>
-                                    <td className="card-checkout">$162.70</td>
+                                    <td className="card-checkout">${totalPrice + 200.00}</td>
                                 </tr>
                             </tbody>
                         </table>

@@ -1,0 +1,41 @@
+@import '../../../src//responsive.scss';
+
+.logout-container {
+    margin-left: 45px;
+    width: 75%;
+    /* padding: 50px 30px 35px; */
+    height: auto;
+    display: flex;
+    @include respond-to(tablet-mini) {
+        margin-left: 0;
+        width: 95%;
+      }
+    @include respond-to(mobile-small) {
+        display: flex;
+        flex-direction: column;
+    }
+}
+.user-info {
+    box-shadow: 4px 8px 30px rgba(141, 141, 141, 0.1);
+    padding: 30px;
+    margin-right: 17px;
+    width: 50%;
+    @include respond-to(tablet-mini) {
+        &:last-child {
+            margin-right: 0;
+        }
+      }
+      @include respond-to(tablet-mini) {
+          width: 100%;
+      }
+}
+.info {
+    color: #848484;
+    margin-top: 17px;
+    line-height: 2rem;
+}
+.user-info ul {
+    list-style-type: none;
+    padding-left: 0!important;
+}
+

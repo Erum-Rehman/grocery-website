@@ -1,3 +1,20 @@
+
+@import '../../../src//responsive.scss';
+
+.cart-container1 {
+    width: 83%;
+    display: flex;
+    margin: 100px auto 0 auto;
+    @include respond-to(tablet) {
+        width: 93%;
+        margin: 100px 35px 0 35px
+      }
+    @include respond-to(tablet-mini) {
+        width: 90%;
+        margin: 100px auto 0;
+        flex-direction: column;
+    }
+}
 .cart-table {
     
     width: 100%;
@@ -32,7 +49,7 @@
     border-radius: 50%;
     color: #848484;
     background-color: white;
-    box-shadow: 4px 8px 30px rgb(141 141 141 / 19%);
+    box-shadow: 4px 8px 30px rgba(141, 141, 141, 0.1);
     font-size: 3px;
     padding: 5px;
     width: 30px;
@@ -60,10 +77,16 @@
 .cart-container {
     width: 83%;
     margin: 40px auto 100px;
+    @include respond-to(tablet-mini) {
+        width: 90%;
+      }
 }
 .checkout {
     display: flex;
     margin-bottom: 35px;
+    @include respond-to(tablet-mini) {
+        flex-direction: column;
+      }
 }
 .coupon-input {
     width: 30%;
@@ -71,6 +94,9 @@
     border-width: 0px;
     height: fit-content;
     margin: 15px 25px 0 0;
+    @include respond-to(tablet-mini) {
+        width: 100%;
+      }
 }
 .coupon-input:hover {
     border: none!important;
@@ -85,6 +111,9 @@
 }
 table {
     width: -webkit-fill-available;
+    @include respond-to(tablet-mini) {
+        width: 145%;
+      }
 }
 .checkout-table {
     width: 69%;
@@ -117,6 +146,9 @@ table {
 .buttons {
     display: flex;
     margin-top: 30px;
+    @include respond-to(mobile-small) {
+        flex-direction: column;
+      }
 }
 .checkout-butn {
     padding: 10px 20px;
@@ -131,4 +163,7 @@ table {
     border: none!important;
     font-weight: 500;
     font-size: 17px;
+    @include respond-to(mobile-small) {
+        padding: 17px 26px;
+      }
 }

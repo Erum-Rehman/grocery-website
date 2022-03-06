@@ -1,3 +1,5 @@
+@import '../../../src//responsive.scss';
+
 .product-banner {
     width: 100%;
     height: 430px;
@@ -16,6 +18,16 @@
     align-items: center;
     position: absolute;
     justify-content: center;
+    @include respond-to(mobile-small) {
+        padding: 0 75px;
+     }
+    a {
+        text-decoration: none;
+        color: white;
+        &:hover {
+            color: white;
+        }
+    }
 }
 .title {
     font-size: 45px;
@@ -31,24 +43,15 @@
     font-size: 18px;
     text-align: center;
     padding-left: 0!important;
-}
-.list ::before {
-    color: white;
-    float: left;
-    padding-right: 0.5rem;
-    content:var("<");
-    
+    @include respond-to(mobile-small) {
+        top: 63%;
+     }
 }
 .bg-title {
     padding-left: 10px!important;
+    cursor: pointer;
 }
-a {
-    text-decoration: none;
-    color: white;
-}
-a:hover {
-    color: white;
-}
+
 .arrow {
     margin-left: 10px;
     font-size: 13px;

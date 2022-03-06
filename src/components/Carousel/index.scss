@@ -1,0 +1,51 @@
+@import '../../../src//responsive.scss';
+
+/* category */
+.container-category {
+    width: 85%;
+    max-width: 100%;
+    margin: 40px auto;
+    @include respond-to(tablet) {
+        width: 95%;      
+    }
+}
+.row-category {
+    display: flex;
+    justify-content: space-between;
+}
+.category {
+    background: #fff;
+    margin: 10px 20px;
+    border: 1px solid #eee;
+    height: 8em;
+    width: 100%;
+    text-align: center;
+    padding: 26px 32px;
+    @include respond-to(tablet) {
+        margin: 10px 15px;     
+    }
+    &:hover {
+        background-color: #00896f;
+        color: #fff;
+        svg {
+            path {
+                fill: #fff;
+            }
+        }
+    }
+    
+}
+.category-title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1;
+    padding: 15px 0 0 0
+}
+.lcUbOd {
+    box-shadow: none!important;
+    background-color: #eee!important;
+}
+.cNNJIt {
+    margin: 0 18px!important;
+    background-color: #fff!important;
+}

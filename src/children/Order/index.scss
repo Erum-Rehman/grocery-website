@@ -1,0 +1,12 @@
+@import '../../../src//responsive.scss';
+
+.order-table {
+    text-align: center;
+    @include respond-to(tablet-mini) {
+        width: 100%;
+    }
+}
+.mobile-order {
+    margin: 0 20px;
+    border: 1px solid #eee!important;
+}

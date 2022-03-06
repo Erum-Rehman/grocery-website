@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './index.scss';
 import PersistentDrawerLeft from '../Sidebar/index.js';
 import PersistentDrawerRight from '../CartBag';
 import CartBag from '../CartBag';
@@ -79,7 +79,7 @@ const HomeNavbar = () => {
 
                     <li ><Link to="/contact">Contact</Link> </li>
                 </ul>
-                <div className="nav-contact">
+                <div className="nav-contact-home">
                     <div className='main-header-icons'>
                         <MenuIcon onClick={handleMenuClose} className='menu' />
 

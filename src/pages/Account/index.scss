@@ -1,0 +1,127 @@
+@import '../../../src//responsive.scss';
+
+.main-container {
+    width: 83%;
+    display: flex;
+    margin: 100px auto 0 auto;
+    @include respond-to(tablet) {
+        width: 93%;
+        margin: 100px 35px 0 35px
+      }
+      @include respond-to(tablet-mini) {
+        width: 95%;
+        margin: 100px auto 0;
+        flex-direction: column;
+      }
+      @include respond-to(mobile-small) {
+        width: 90%;
+      }
+}
+.account-container {
+    display: flex;
+    width: -webkit-fill-available;
+    margin-bottom: 50px;
+    @include respond-to(tablet-mini) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.account-reference {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    @include respond-to(tablet-mini) {
+        width: 50%;
+    }
+    @include respond-to(mobile-small) {
+        width: 73%;
+    }
+}
+.account-butn {
+    box-shadow: 4px 8px 30px rgba(141, 141, 141, 0.1);
+    margin-bottom: 15px;
+    padding: 13px;
+    border: none!important;
+    background-color: white;
+    color: #848484;
+    font-size: 18px;
+    font-weight: 600;
+    width: 100%;
+}
+.account-butn:hover {
+    color: white!important;
+    background-color: #f96822!important;
+}
+.account-butn:focus {
+    background-color: #f96822;
+    border: none;
+}
+.account-icons {
+    /* padding: 5px; */
+    margin-right: 5px;
+}
+.account-preferences {
+    box-shadow: 4px 8px 30px rgba(141, 141, 141, 0.1);
+    margin-left: 45px;
+    width: 95%;
+    padding: 45px 30px 35px;
+    height: auto;
+    @include respond-to(tablet-mini) {
+        margin-left: 0;
+    }
+}
+.notification-div {
+    display: flex;
+    margin: 35px auto 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    @include respond-to(mobile-small) {
+        flex-direction: column;
+    }
+}
+
+.account-notification {
+    border: 1px solid #eee;
+    width: 22%;
+    height: 54%;
+    text-align: center;
+    padding: 38px 6px; 
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    @include respond-to(tablet) {
+        width: 21%;
+    }
+    @include respond-to(tablet-mini) {
+        width: 20%;
+        margin: 0 10px 15px;
+    }
+    @include respond-to(mobile-small) {
+        width: 78%;
+    }
+}
+.counter {
+    font-size: 45px;
+    color: #848484;
+}
+.counter-title {
+    color: #505050;
+    font-size: 22px;
+    padding-top: 6px;
+}
+.dashboard-preferences {
+    box-shadow: 4px 8px 30px rgba(141, 141, 141, 0.1);
+    margin-left: 45px;
+    width: 71%;
+    padding: 50px 30px 35px;
+    height: auto;
+    @include respond-to(tablet) {
+        padding: 50px 3px 35px;
+    }
+    @include respond-to(tablet-mini) {
+        width: 90%;
+        margin-left: 0;
+    }
+}

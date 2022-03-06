@@ -1,11 +1,21 @@
+@import '../../../src/responsive.scss';
+
 .dropdown-container {
     display: flex;
     width: 85%;
     margin: 100px auto 20px auto;
     justify-content: space-between;
+    @include respond-to(mobile-small) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
 .drop-right  {
     display: flex;
+    @include respond-to(mobile-small) {
+        margin-top: 12px;
+    }
 }
 .dropdown-popularity {
     margin: 0 8px;
