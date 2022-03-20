@@ -22,7 +22,7 @@ const Navbar = () => {
   const updateDimensions = () => {
     setWidth(window.screen.width)
   };
-  console.log({ width })
+  
   return (
     <>
       {width <= 499 ? <MobileNavbar /> : location.pathname === "/" ? <HomeNavbar /> : <PageNavbar />}

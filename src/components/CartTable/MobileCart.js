@@ -12,6 +12,52 @@ import { useSelector, useDispatch } from "react-redux";
 import { Splitscreen } from "@mui/icons-material";
 
 const MobileCart = (props) => {
+    // const [items, setItems] = useState({
+    //     name: "",
+    //     discountPrice: "",
+    //     totalPrice: "",
+    //     oldPrice: "",
+    //     image: "",
+    // });
+
+    // let name, value;
+    // const getUserData = (e) => {
+    //     name = e.target.name;
+    //     value = e.target.value;
+    //     setUser({ ...user, [name]: value })
+    // }
+
+    // const postData = async (event) => {
+    //     event.preventDefault();
+
+    //     const { name, email, message } = user;
+
+    //     if (name && email && message) {
+    //         const res = await fetch(
+    //             "https://grocery-website-589ba-default-rtdb.firebaseio.com/Cart.json", {
+    //             headers: {
+    //                 "Content-type": "Application/json"
+    //             },
+    //             body: JSON.stringify({
+    //                 name,
+    //                 email,
+    //                 message,
+    //             })
+    //         })
+    //         if (res) {
+    //             setUser({
+    //                 name: "",
+    //                 email: "",
+    //                 message: "",
+    //             })
+    //             alert("message sent successfully")
+    //         }
+    //     }
+    //     else{
+    //         alert("Please fill all the fields")
+    //     }
+        
+    // }
     const dispatch = useDispatch();
 
     const increment = (item) => {

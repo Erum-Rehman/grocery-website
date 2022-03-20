@@ -1,17 +1,27 @@
 import React, { useState } from "react";
 import './index.scss';
+import { useNavigate } from "react-router-dom";
 import Background from '../../components/Background';
 import { InputGroup, FormControl, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ButnField from "../../components/Button";
 import { FiEye } from "react-icons/fi";
 import { toast } from "react-toastify";
+import { signInWithEmailAndPassword, db, auth, ref, onValue } from "../../config/fire";
+import { saveUser } from '../../redux/Action'
+import { useDispatch, useSelector } from "react-redux";
 
 const Login = () => {
+    const navigate = useNavigate();
     const [userLogin, setUserLogin] = useState({
-        name: "",
+        email: "",
         password: "",
     });
+    const dispatch = useDispatch();
+
+    const { user } = useSelector(state => state);
+
+    console.log({user})
 
     let name, value;
     const getUserLogin = (e) => {
@@ -23,15 +33,27 @@ const Login = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        const { name, password } = userLogin;
+        const { email, password } = userLogin;
 
-        if (!name || !password) {
+        if (!email || !password) {
             return toast.error("please fill required fields")
         }
         const data = {
-            name, password,
+            email, password,
         }
-        console.log(`login fields ${JSON.stringify(data)}`)
+        // login user
+        signInWithEmailAndPassword(auth, email, password)
+            .then((user) => {
+                const reference = ref(db, `/users/${user.user.uid}`);
+                onValue(reference, (snapshot) => {
+                    if (snapshot.exists()) {
+                        let userObj = snapshot.val();
+                        alert("Account Created Successfully");
+                        dispatch(saveUser(userObj))
+                    }
+                });
+            })
+            .catch(err => console.log({ err }))
     }
 
     return (
@@ -39,17 +61,17 @@ const Login = () => {
             <form className="login-container" onSubmit={handleSubmit}>
                 <h2 style={{ marginBottom: '20px', textAlign: 'center' }}>Login Your Account</h2>
                 <div className="contact-cell">
-                    <label>User Name *</label><br />
+                    <label>Email</label><br />
                     <input
-                        type="text" name="name"
-                        placeholder="Your first name"
+                        type="text" name="email"
+                        placeholder="Your email address"
                         className="contact-field"
-                        value={userLogin.name}
+                        value={userLogin.email}
                         onChange={getUserLogin}
                     />
                 </div>
                 <div className="contact-login">
-                    <label>Password *</label><br />
+                    <label>Password</label><br />
                     <input
                         type="password"
                         placeholder="***********"
@@ -62,11 +84,11 @@ const Login = () => {
                 </div>
                 <span style={{ textAlign: 'end' }}>Forgotten Password?</span>
 
-                    <div className="checkbox-div">
-                        <input type="checkbox" style={{ marginRight: '15px' }} />
-                        <label style={{ color: "#505050", fontSize: '17px', fontWeight: '500' }}>
-                            Remember Me</label>
-                    </div>
+                <div className="checkbox-div">
+                    <input type="checkbox" style={{ marginRight: '15px' }} />
+                    <label style={{ color: "#505050", fontSize: '17px', fontWeight: '500' }}>
+                        Remember Me</label>
+                </div>
                 <ButnField title="LOGIN ACCOUNT" type="submit" />
             </form>
         </>

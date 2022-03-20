@@ -18,6 +18,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Splitscreen } from "@mui/icons-material";
 
 const Cart = (props) => {
+    
     const [width, setWidth] = useState(window.screen.width);
 
   useEffect(() => {

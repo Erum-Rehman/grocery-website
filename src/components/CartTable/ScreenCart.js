@@ -13,6 +13,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Splitscreen } from "@mui/icons-material";
 
 const ScreenCart = (props) => {
+    
     const dispatch = useDispatch();
 
     const increment = (item) => {

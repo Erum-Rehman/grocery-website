@@ -16,7 +16,7 @@ import Category from '../../components/Carousel';
 const Home = () => {
     const navigate = useNavigate();
 
-    useSelector(state => console.log({ state }))
+    // useSelector(state => console.log({ state }))
 
     return (
         <>

@@ -31,14 +31,11 @@ const ProductDetails = () => {
     }
 
     useLayoutEffect(() => {
-        console.log({ id }, allProducts)
         const data = allProducts.find((item) => item.id === id);
         const productCount = products.find((item) => item.id === id) ? count : '0';
         data.count = count ? count : data.count
         setProductData(data)
     }, []);
-
-    console.log({ productData })
 
     const { cart: { totalPrice, products, quantity } } = useSelector(state => state);
     const { id: productId, image, image2, image3, image4, name, discountedPrice, description, button, count } = productData;

@@ -21,7 +21,7 @@ const Footer = () => {
   const updateDimensions = () => {
     setWidth(window.screen.width)
   };
-    console.log({width})
+    
     return (
         <>
         {width <= 499 ? <MobileFooter /> : <ScreenFooter />}

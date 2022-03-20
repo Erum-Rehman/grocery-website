@@ -8,6 +8,7 @@ import Login from "./Login";
 import { Link } from "react-router-dom";
 import { FiEye } from "react-icons/fi";
 import { toast } from "react-toastify";
+import { createUserWithEmailAndPassword, auth, db, ref, set } from "../../config/fire";
 
 const Registration = ({registerUser}) => {
     const [userRegister, setUserRegister] = useState({
@@ -29,7 +30,7 @@ const Registration = ({registerUser}) => {
         event.preventDefault();
 
         const { name, password, email, confirmPassword } = userRegister;
-
+        
         if(!name || !password || !email || !confirmPassword){
             return toast.error("please fill required fields")
         }
@@ -37,17 +38,28 @@ const Registration = ({registerUser}) => {
             return toast.error("Password must be of 6 or more characters!")
         }
         const data = {
-            name, password, email, confirmPassword
+            name, password, email
         }
-        registerUser(data)
-        console.log(`register fields ${JSON.stringify(data)}`)
+        
+        // Register user
+        createUserWithEmailAndPassword(auth, email, password)
+        .then(res => {
+            const uid = res.user.uid;
+            const reference = ref(db, `/users/${uid}`);
+            set(reference, data).then(user => {
+                alert("Account Created Successfully");
+                console.log({"done":user})
+                window.history.push('/login')
+            })
+        })
+        .catch(err => console.log({err}))
     }
     return (
         <>
             <form className="login-container" onSubmit={handleSubmit}>
                 <h2 style={{ marginBottom: '20px', textAlign: 'center' }}>Register Your account</h2>
                 <div className="contact-cell">
-                    <label>First Name *</label><br />
+                    <label>User Name *</label><br />
                     <input
                         type="text" name="name"
                         placeholder="Your first name"

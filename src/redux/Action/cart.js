@@ -12,7 +12,7 @@ export const removeFromCart = (payload) => ({
     type: Types.REMOVE_FROM_CART,
     payload
 })
-export const updateCart = (item) => ({
+export const updateCart = (payload) => ({
     type: Types.UPDATE_CART,
-    payload: item
+    payload
 })
