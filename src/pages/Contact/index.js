@@ -83,7 +83,7 @@ const Contact = () => {
                         />
                     </div>
                     <div className="contact-cell">
-                        <label>Your Message</label><br />
+                        <label>Your Messages</label><br />
                         <textarea
                             name="message"
                             className="contact-msg" rows="3"
