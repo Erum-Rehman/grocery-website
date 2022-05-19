@@ -3,7 +3,7 @@ import './index.scss';
 import { TiTimes } from "react-icons/ti";
 import ButnField from '../../components/Button';
 import IncDec from "../../components/IncDec";
-import { updateCart, removeFromCart } from '../../redux/Action';
+import { updateCartItem, removeCartItem } from '../../redux/Thunk/cart';
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { styled, useTheme } from '@mui/material/styles';
@@ -32,6 +32,7 @@ import Home from '../../pages/Home/Home';
 import About from '../../pages/About';
 import Contact from '../../pages/Contact';
 import Products from '../../pages/Products';
+import products from '../../mock/product';
 
 const drawerWidth = 180;
 
@@ -49,19 +50,21 @@ export default function PersistentDrawerRight({ handleCartClose, open }) {
     const location = useLocation();
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    
+    const { cart: { totalPrice, products, products: cartProducts, quantity } } = useSelector(state => state);
+
     const increment = (item) => {
         item.count = item.count ? item.count + 1 : 1;
-        dispatch(updateCart(item));
+        dispatch(updateCartItem(item, cartProducts));
     }
 
     const decrement = (item) => {
         item.count = item.count > 1 ? item.count - 1 : 1;
-        dispatch(updateCart(item));
+        dispatch(updateCartItem(item, cartProducts));
     }
-    const removeItem = (index) => {
-        dispatch(removeFromCart(index));
+    const removeItem = (id) => {
+        dispatch(removeCartItem(id));
     }
-    const { cart: { totalPrice, products, quantity } } = useSelector(state => state);
 
     return (
         <Box sx={{ display: 'flex' }}>
@@ -91,7 +94,7 @@ export default function PersistentDrawerRight({ handleCartClose, open }) {
                         {
                             products.map((item, index) => (
                                 <div key={item} className='bag-items'>
-                                    <img src={item.image} className="bag-image" />
+                                    <img src={`${window.location.origin}/${item.image}`} className="bag-image" />
                                     <div className='item-name'>
                                         <h5 className="product-title">{item.name}</h5>
                                         <div className='item-price'>
@@ -105,7 +108,7 @@ export default function PersistentDrawerRight({ handleCartClose, open }) {
                                         </div>
                                     </div>
                                     <div className='del-item'>
-                                        <TiTimes className="del-icon" onClick={() => removeItem(index)} />
+                                        <TiTimes className="del-icon" onClick={() => removeItem(item.id)} />
                                     </div>
                                 </div>
                             ))

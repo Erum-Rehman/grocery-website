@@ -5,7 +5,7 @@ import { InputGroup, FormControl, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Background from '../../components/Background';
 import ButnField from "../../components/Button";
-import { updateCart, removeFromCart } from '../../redux/Action';
+import { updateCartItem, removeCartItem } from '../../redux/Thunk/cart'
 import Home from "../Home/Home";
 import { useLocation, useNavigate } from "react-router-dom";
 import Checkout from '../Checkout';
@@ -17,44 +17,32 @@ import ScreenCart from '../../components/CartTable/ScreenCart';
 import { useSelector, useDispatch } from "react-redux";
 import { Splitscreen } from "@mui/icons-material";
 
-const Cart = (props) => {
-    
+const Cart = () => {
+
+
     const [width, setWidth] = useState(window.screen.width);
 
-  useEffect(() => {
+    useEffect(() => {
 
-    window.addEventListener('resize', updateDimensions);
+        window.addEventListener('resize', updateDimensions);
 
-    return () => {
-      window.removeEventListener('resize', updateDimensions);
-    }
+        return () => {
+            window.removeEventListener('resize', updateDimensions);
+        }
 
-  }, [window.screen.width])
+    }, [window.screen.width])
 
-  const updateDimensions = () => {
-    setWidth(window.screen.width)
-  };
+    const updateDimensions = () => {
+        setWidth(window.screen.width)
+    };
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
-    const increment = (item) => {
-        item.count = item.count ? item.count + 1 : 1;
-        dispatch(updateCart(item));
-    }
-
-    const decrement = (item) => {
-        item.count = item.count > 1 ? item.count - 1 : 1;
-        dispatch(updateCart(item));
-    }
-    const removeItem = (index) => {
-        dispatch(removeFromCart(index));
-    }
 
     const { cart: { totalPrice, products, quantity } } = useSelector(state => state);
     return (
         <>
             <Background title="Cart" />
-            {width <= 499 ? <MobileCart /> : <ScreenCart />}
+            {width <= 499 ? <MobileCart /> : <ScreenCart/>}
             <div className="cart-container" >
                 <h4> Coupon Code</h4>
                 <div className="checkout">

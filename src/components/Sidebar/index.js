@@ -41,6 +41,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 export default function PersistentDrawerLeft({ handleMenuClose, open }) {
   const theme = useTheme();
   const location = useLocation();
+  // const navigate = useNavigate();
 
   const items = [
     { name: 'Fruits & Vegetables', icon: 'FRUIT_VEGETABLE' },
@@ -54,8 +55,8 @@ export default function PersistentDrawerLeft({ handleMenuClose, open }) {
     { name: 'Covid-19 Protection', icon: 'HOME_CLEANING' }
   ];
   const sideMenu = [
-    { name: 'Home', icon: <AiOutlineHome />, Link: '../../pages/Home/Home' },
-    { name: 'About', icon: <HiOutlineUsers />, path: '../../' },
+    { name: 'Home', icon: <AiOutlineHome />},
+    { name: 'About', icon: <HiOutlineUsers />, path: '/about' },
     { name: 'Products', icon: <AiOutlineShoppingCart /> },
     { name: 'Contact', icon: <AiOutlineContacts /> },
   ]
@@ -112,6 +113,18 @@ export default function PersistentDrawerLeft({ handleMenuClose, open }) {
             ))}
 
           </List>
+          :location.pathname !== '/'?
+          <List>
+          {sideMenu.map((item, index) => (
+            <ListItem button key={index}>
+              <ListItemIcon className='sidemenu-icon'>
+                {item.icon}
+              </ListItemIcon>
+              <ListItemText primary={item.name} />
+            </ListItem>
+          ))}
+
+        </List>
           :width <= 499 ?
           <List>
             {sideMenu.map((item, index) => (

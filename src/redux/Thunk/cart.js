@@ -1,6 +1,7 @@
-import { updateCart, removeFromCart } from '../Action/index';
+import { updateCart, removeFromCart, deleteCart } from '../Action/index';
+import { db, ref, set, remove } from "../../config/fire";
 
-export const updateCartItem = (cartItem, currentCart) => (dispatch) => {
+export const updateCartItem = (cartItem, currentCart) => (dispatch, getState) => {
     const currentCartItem = currentCart.find((item) => item.id === cartItem.id)
     let updatedProducts;
     let total;
@@ -12,19 +13,59 @@ export const updateCartItem = (cartItem, currentCart) => (dispatch) => {
             }
             return item;
         })
-
     } else {
         cartItem.totalPrice = cartItem.discountPrice ? cartItem.discountPrice : cartItem.oldPrice;
         updatedProducts = [...currentCart, cartItem];
     }
     total = updatedProducts.reduce((acc, current) => acc + current.totalPrice, 0)
-    dispatch(updateCart({ updatedProducts, total })
-    )
+
+    // Add Cart item to db
+    const { userReducer: { user: { uid } } } = getState();
+    if(uid) {
+        const reference = ref(db, `/cart/${uid}/${cartItem.id}`);
+        set(reference, cartItem).then(res => {
+            dispatch(updateCart({ updatedProducts, total }))
+        })
+            .catch(err => console.log({ err }))
+    } else {
+        localStorage.setItem('products', JSON.stringify(updatedProducts));
+        localStorage.setItem('total', total);
+        dispatch(updateCart({ updatedProducts, total }))
+    }
+    
 }
-export const removeCartItem = (currentCart) => (dispatch) => {
-    const allProducts = currentCart;
-    allProducts.splice(currentCart, 1);
-    const updatedTotal = allProducts.reduce((acc, current) => acc + current.totalPrice, 0)
-    dispatch(removeFromCart({ currentCart, updatedTotal })
-    )
+export const removeCartItem = (id) => (dispatch, getState) => {
+    const { cart: { products } } = getState();
+    const currentCartItem = products.find((item) => item.id === id)
+    let updatedTotal;
+    if (currentCartItem) {
+        products.splice(products.indexOf(currentCartItem), 1);
+        updatedTotal = products.reduce((acc, current) => acc + current.totalPrice, 0)
+    }
+
+    // remove Cart item from db
+    const { userReducer: { user: { uid } } } = getState();
+    const reference = ref(db, `/cart/${uid}/${id}`)
+    remove(reference).then(res => {
+        // console.log({'item':uid, id})
+        dispatch(removeFromCart({ products, updatedTotal }))
+        // console.log("removed")
+    })
+        .catch(err => console.log({ "Remove failed: ": err }))
+
 }
+// export const deleteCartItems = () => (dispatch, getState) => {
+//     const { cart: { products } } = getState();
+//     let updatedTotal;
+//     products = "";
+//     updatedTotal = 0;
+
+//     // remove Cart item from db
+//     const { userReducer: { user: { uid } } } = getState();
+//     const reference = ref(db, `/cart/${uid}`)
+//     remove(reference).then(res => {
+//         dispatch(deleteCart({ products, updatedTotal }))
+//         console.log({products, updatedTotal})
+//     })
+//         .catch(err => console.log({ "Remove failed: ": err }))
+// }

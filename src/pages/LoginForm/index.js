@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import Background from '../../components/Background';
 import Login from "../../components/RegistrationLogin/Login";
 import Register from "../../components/RegistrationLogin/Register";

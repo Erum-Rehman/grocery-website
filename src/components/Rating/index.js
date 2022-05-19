@@ -9,7 +9,7 @@ const Rating = () => {
     return(
         <>
             <div>
-                <ReactStars activeColor='#f96822' size='20' isHalf={true}
+                <ReactStars activeColor='#f96822' size={20} isHalf={true}
                 count={5} 
                 //  onChange={ratingChanged}
                  />

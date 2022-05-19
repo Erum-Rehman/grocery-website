@@ -19,74 +19,55 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Error from '../../pages/Error';
 import LoginForm from '../../pages/LoginForm';
 import Login from '../RegistrationLogin/Login';
+import Registration from '../RegistrationLogin/Register';
 import ProductDetails from '../../pages/ProductDetails';
 import ProductSider from '../../pages/ProductSidebar';
-import { Dropdown, DropdownButton, SplitButton, ButtonGroup } from "react-bootstrap";
+// import { Dropdown, DropdownButton, SplitButton, ButtonGroup } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import FadeMenu from '../MenuItem';
+// import Orders from '../../pages/Orders';
+import Order from '../../children/Order';
 
-const HomeNavbar = () => {
+const HomeNavbar = ({signOutUser}) => {
     const [isOpen, setIsOpen] = useState(false)
     const navigate = useNavigate();
     const [iscartBag, setIsCartBag] = useState(false)
 
-    const { cart: { totalPrice, products, quantity } } = useSelector(state => state);
+    const { cart: { totalPrice, products, quantity }, userReducer: { user: { name } } } = useSelector(state => state);
+
     const handleMenuClose = () => {
         setIsOpen(!isOpen)
     }
     const handleCartClose = () => {
         setIsCartBag(!iscartBag)
     }
-
     return (
         <>
-            <PersistentDrawerRight open={iscartBag} handleCartClose={handleCartClose}/>
+            <PersistentDrawerRight open={iscartBag} handleCartClose={handleCartClose} />
             <PersistentDrawerLeft open={isOpen} handleMenuClose={handleMenuClose} />
             <div className="main-header">
-
-                <div className="nav-logo">
-                    <img src={require("../../images/logo-2.png")} alt="" style={{ width: 129, height: 34 }} className='logo' />
-                </div>
+                <Link to="/">
+                    <div className="nav-logo">
+                        <img src={require("../../images/logo-2.png")} alt="" style={{ width: 129, height: 34 }} className='logo' />
+                    </div>
+                </Link>
                 <ul className="nav-items">
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About</Link> </li>
-                    <li>
-                        <DropdownButton
-                            as={ButtonGroup}
-                            key="down"
-                            id={`dropdown-button-drop-down`}
-                            drop="down"
-                            variant="Light"
-                            title={` Shop `}
-                            className="dropdown-shop"
-                        >
-                            <Dropdown.Item href="" ><Link to="/product">Product</Link></Dropdown.Item>
-                            <Dropdown.Item href=""><Link to="/productSidebar">Product Sidebar</Link></Dropdown.Item>
-                        </DropdownButton>
-                    </li>
-                    <li>
-                        <DropdownButton
-                            as={ButtonGroup}
-                            key="down"
-                            id={`dropdown-button-drop-down`}
-                            drop="down"
-                            variant="Light"
-                            title={` Pages `}
-                        >
-                            <Dropdown.Item href=""><Link to="/login">Login</Link></Dropdown.Item>
-                            <Dropdown.Item href=""><Link to="/error">Error</Link></Dropdown.Item>
-                        </DropdownButton>
-                    </li>
-
+                    <li><Link to="/product">Shop</Link></li>
+                    <li><FadeMenu MenuTitle="Pages" classname="pages" options={[{name: "Login", href_link: "/login"}]} /></li>
                     <li ><Link to="/contact">Contact</Link> </li>
                 </ul>
                 <div className="nav-contact-home">
                     <div className='main-header-icons'>
                         <MenuIcon onClick={handleMenuClose} className='menu' />
-
-                        <AiOutlineUser className="nav-icons" onClick={() => navigate("/account")} />
+                        {!name ?
+                            <AiOutlineUser className="nav-icons" onClick={() => navigate("/register")} />
+                            : <FadeMenu MenuTitle={name} classname="usericon"  options={[{name:"Log Out"},{name:"Account", href_link: "/account"} ,{name:"Order", href_link: "/order"} ]} />
+                        }
                         <div>
-                        <AiOutlineShoppingCart className="nav-icons" onClick={handleCartClose}/>
-                        <div className='cart-count'>{quantity}</div>
+                            <AiOutlineShoppingCart className="nav-icons" onClick={handleCartClose} />
+                            <div className='cart-count'>{quantity}</div>
                         </div>
                     </div>
                 </div>

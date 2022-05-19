@@ -1,0 +1,59 @@
+@import '../../../src/responsive.scss';
+
+.user_orders {
+    margin: 70px 160px;
+}
+.orders-items {
+    display: flex;
+    align-items: center;
+    padding: 10px 0 20px;
+}
+.orders-image {
+    width: 130px;
+    height: 111px;
+}
+.orders-name {
+    padding-left: 20px;
+}
+.orders-title {
+    margin: 0px 0 10px;
+    font-size: 22px;
+    font-weight: 700;
+}
+.orders-price {
+    display: flex;
+    align-items: center;
+}
+.orders-item-count {
+    width: 37%;
+    margin-right: 9px;
+}
+.orders_price {
+    display: flex;
+    align-items: center;
+    color: #848484;
+    font-weight: 700;
+}
+.order_count {
+    font-size: 18px;
+    display: flex;
+    font-weight: 700;
+}
+.orders_price {
+    font-size: 17px;
+    color: #848484;
+}
+.span_total {
+    color: #848484;
+    margin-left: 40px;
+}
+.orders_total {
+    font-size: 22px;
+    font-weight: 700;
+    display: contents;
+}
+.orders_head {
+    margin-bottom: 14px;
+    font-family: sans-serif;
+    font-weight: 700;
+}

@@ -25,7 +25,7 @@ const Navbar = () => {
   
   return (
     <>
-      {width <= 499 ? <MobileNavbar /> : location.pathname === "/" ? <HomeNavbar /> : <PageNavbar />}
+      {width <= 499 ? <MobileNavbar/> : location.pathname === "/" ? <HomeNavbar /> : <PageNavbar/>}
     </>
   )
 }

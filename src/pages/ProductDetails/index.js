@@ -11,8 +11,7 @@ import Cart from "../Cart";
 import IncDec from "../../components/IncDec";
 import { useSelector, useDispatch } from "react-redux";
 import allProducts from "../../mock/product";
-import { updateCart } from '../../redux/Action';
-
+import { updateCartItem } from "../../redux/Thunk/cart";
 const ProductDetails = () => {
     const location = useLocation();
     const navigate = useNavigate();
@@ -22,12 +21,12 @@ const ProductDetails = () => {
     const { id } = useParams();
     const increment = (item) => {
         item.count = item.count ? item.count + 1 : 1;
-        dispatch(updateCart(item));
+        dispatch(updateCartItem(item));
     }
 
     const decrement = (item) => {
         item.count = item.count > 1 ? item.count - 1 : 1;
-        dispatch(updateCart(item));
+        dispatch(updateCartItem(item));
     }
 
     useLayoutEffect(() => {

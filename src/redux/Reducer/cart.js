@@ -17,26 +17,32 @@ const cart = (state = INITIAL_STATE, action) => {
             }
             break;
 
-        case Types.CLEAR_CART:
+        case Types.SAVE_CART:
+            return{
+                products: [...action.payload],
+                quantity: action.payload.length,
+                totalPrice: action.payload.reduce((acc, current) => acc + current.totalPrice, 0)
+            }
+            break;
+        
+        case Types.DELETE_CART:
             return {
                 ...state,
                 products: [],
                 totalPrice: 0,
-                quantity: 0
+                quantity: 0,
             }
-        break;
+            break;
 
         case Types.REMOVE_FROM_CART:
-            const allProducts = state.products;
-            allProducts.splice(action.payload, 1);
-            const updatedTotal = allProducts.reduce((acc, current) => acc + current.totalPrice, 0)
+            console.log({action})
             return {
                 ...state,
-                products: [...allProducts],
-                quantity: allProducts.length,
-                totalPrice: updatedTotal
+                products: action.payload.products,
+                quantity: action.payload.products.length,
+                totalPrice: action.payload.updatedTotal
             }
-        break;
+            break;
 
         default:
             return state

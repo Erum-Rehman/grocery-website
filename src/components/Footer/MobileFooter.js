@@ -26,13 +26,16 @@ import Login from '../RegistrationLogin/Login';
 import ProductDetails from '../../pages/ProductDetails';
 import ProductSider from '../../pages/ProductSidebar';
 import { useSelector } from "react-redux";
+import MenuItem from '../MenuItem';
+import FadeMenu from '../MenuItem';
+import Orders from '../../pages/Orders';
 
 const MobileFooter = () => {
     const [isOpen, setIsOpen] = useState(false)
     const navigate = useNavigate();
     const [iscartBag, setIsCartBag] = useState(false)
 
-    const { cart: { totalPrice, products, quantity } } = useSelector(state => state);
+    const { cart: { totalPrice, products, quantity }, userReducer: { user: { name } } } = useSelector(state => state);
     const handleDrawerClose = () => {
         setIsOpen(!isOpen)
     }
@@ -45,7 +48,7 @@ const MobileFooter = () => {
     return (
         <>
             <PersistentDrawerRight open={iscartBag} handleCartClose={handleCartClose} />
-            <PersistentDrawerLeft open={isOpen} handleDrawerClose={handleDrawerClose} handleMenuClose={handleMenuClose}/>
+            <PersistentDrawerLeft open={isOpen} handleDrawerClose={handleDrawerClose} handleMenuClose={handleMenuClose} />
             <div className='footer'>
                 <div className='container-footer'>
                     <div className='footer-contact'>
@@ -117,10 +120,13 @@ const MobileFooter = () => {
                 <p className='copyright'>
                     Copyright 2021 EG-Shop Grocery | Design By Egens Lab</p>
             </div>
-            
+
             <div className="mobile-footer">
                 {/* <MenuIcon onClick={handleMenuClose} className='footer-icon' /> */}
-                <AiOutlineUser className="footer-icon" onClick={() => navigate("/account")} />
+                {!name ?
+                    <AiOutlineUser className="footer-icon" onClick={() => navigate("/login")} />
+                    : <FadeMenu MenuTitle={name} classname="mobileUser" options={[{ name: "Log Out" }, { name: "Account", href_link: "/account" },{name:"Orders", href_link: "/orders"}]} />
+                }
                 <AiOutlineHeart className="footer-icon" />
                 <AiOutlineShoppingCart className="footer-icon" onClick={handleCartClose} />
                 <div className='cart-count3'>{quantity}</div>

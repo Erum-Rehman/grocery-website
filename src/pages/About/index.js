@@ -19,7 +19,7 @@ const About = () => {
                 </div>
                 <div className="about-para">
                     <p style={{ color: '#00152b', fontSize: '16px', fontWeight: '500' }}>Welcome to EG</p>
-                    <h3>
+                    <h3 className="h3">
                         What can a great About Us page do for your business?
                     </h3>
                     <p className="para-abt">

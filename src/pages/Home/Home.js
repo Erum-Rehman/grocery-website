@@ -12,11 +12,10 @@ import Products from '../Products';
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Category from '../../components/Carousel';
+import axios from 'axios';
 
 const Home = () => {
     const navigate = useNavigate();
-
-    // useSelector(state => console.log({ state }))
 
     return (
         <>
@@ -38,20 +37,6 @@ const Home = () => {
             <h1 >
                 What do you looking for ?
             </h1>
-            {/* <div className="body">
-                <div className="container-category">
-                    <div className="row-category">
-                        {
-                            categories.map(category => <div className="category">
-                                {<div>
-                                    {category.icon}
-                                </div>}
-                                <h5 className="category-title">{category.name}</h5>
-                            </div>)
-                        }
-                    </div>
-                </div>
-            </div> */}
             <Category/>
             <div className="body">
                 <div className="row-offer">
