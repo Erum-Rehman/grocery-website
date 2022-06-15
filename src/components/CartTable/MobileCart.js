@@ -45,7 +45,7 @@ const MobileCart = (props) => {
                         </div>
                         <div className="cart-div">
                             <p className="div-title">Product Name</p>
-                            <div className="cart-name">{item.name}</div>
+                            <div className="cart-name">{item.p_name}</div>
                         </div>
                         <div className="cart-div">
                             <p className="div-title">Unite Price</p>

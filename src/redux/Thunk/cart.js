@@ -21,7 +21,7 @@ export const updateCartItem = (cartItem, currentCart) => (dispatch, getState) =>
 
     // Add Cart item to db
     const { userReducer: { user: { uid } } } = getState();
-    if(uid) {
+    if (uid) {
         const reference = ref(db, `/cart/${uid}/${cartItem.id}`);
         set(reference, cartItem).then(res => {
             dispatch(updateCart({ updatedProducts, total }))
@@ -32,7 +32,7 @@ export const updateCartItem = (cartItem, currentCart) => (dispatch, getState) =>
         localStorage.setItem('total', total);
         dispatch(updateCart({ updatedProducts, total }))
     }
-    
+
 }
 export const removeCartItem = (id) => (dispatch, getState) => {
     const { cart: { products } } = getState();
@@ -54,18 +54,13 @@ export const removeCartItem = (id) => (dispatch, getState) => {
         .catch(err => console.log({ "Remove failed: ": err }))
 
 }
-// export const deleteCartItems = () => (dispatch, getState) => {
-//     const { cart: { products } } = getState();
-//     let updatedTotal;
-//     products = "";
-//     updatedTotal = 0;
-
-//     // remove Cart item from db
-//     const { userReducer: { user: { uid } } } = getState();
-//     const reference = ref(db, `/cart/${uid}`)
-//     remove(reference).then(res => {
-//         dispatch(deleteCart({ products, updatedTotal }))
-//         console.log({products, updatedTotal})
-//     })
-//         .catch(err => console.log({ "Remove failed: ": err }))
-// }
+export const deleteCartItems = () => (dispatch, getState) => {
+    const { cart: { products }, userReducer: { user: { uid } } } = getState();
+    const reference =  ref(db,`/cart/${uid}`).get().toPromise()       
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                doc(reference).delete();
+            });
+            dispatch(deleteCart())
+        });
+}

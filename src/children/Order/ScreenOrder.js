@@ -32,7 +32,9 @@ const ScreenOrder = () => {
                                     <td className="card-shipping">{item.date}</td>
                                     <td className="card-shipping">Pending</td>
                                     <td className="card-shipping">${item.totalPrice}</td>
-                                    <td className="card-shipping"><FiEye className="orderEye" onClick={() => navigate("/orders",{ state: item })} /></td>
+                                    <td className="card-shipping">
+                                        <FiEye className="orderEye" onClick={() => navigate("/orders",{ state: item })} />
+                                    </td>
                                 </tr>
                             ))
                             }

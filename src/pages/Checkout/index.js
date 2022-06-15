@@ -116,8 +116,8 @@ const Checkout = () => {
                                             disabled
                                             value={values.country}
                                             onChange={handleChange}>
-                                            <option value="Pakistan" className="dropdown">Country </option>
-                                            <option value="India" >Pakistan </option>
+                                            <option  className="dropdown">Country </option>
+                                            <option value="Pakistan" >Pakistan </option>
                                             <option value="India" >India </option>
                                             <option value="America">America</option>
                                             <option value="London">London</option>
@@ -200,7 +200,7 @@ const Checkout = () => {
                                                 <img src={item.image} className="cart-image" />
                                             </div>
                                             <div className="sale-content">
-                                                <p className="order-title">{item.name}</p>
+                                                <p className="order-title">{item.p_name}</p>
                                                 <div className="checkout-product">
                                                     <div className="checkout-inc">
                                                         <IncDec onClickAdd={() => increment(item)}

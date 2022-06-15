@@ -96,7 +96,7 @@ export default function PersistentDrawerRight({ handleCartClose, open }) {
                                 <div key={item} className='bag-items'>
                                     <img src={`${window.location.origin}/${item.image}`} className="bag-image" />
                                     <div className='item-name'>
-                                        <h5 className="product-title">{item.name}</h5>
+                                        <h5 className="product-title">{item.p_name}</h5>
                                         <div className='item-price'>
                                             <div className='bag-item-count'>
                                                 <IncDec onClickAdd={() => increment(item)}

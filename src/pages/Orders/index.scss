@@ -1,7 +1,40 @@
 @import '../../../src/responsive.scss';
 
 .user_orders {
-    margin: 70px 160px;
+    margin: 70px 224px;
+    padding: 41px;
+    border: 1px solid #adadad;
+}
+.order_bar {
+    display: flex;
+}
+.header_left {
+    width: 55%;
+}
+.order_para {
+    color: #adadad;
+    font-size: 16px;
+}
+.main_order_div {
+    display: flex;
+}
+.order_content {
+    width: 50%;
+    display: flex;
+    margin-top: 6%;
+    justify-content: space-between;
+}
+.O_qty {
+    display: flex;
+    flex-direction: column;
+}
+.customer_details {
+    width: 50%;
+    margin: 6% 0% 0 10%;
+    justify-content: space-between;
+}
+.customer_info {
+    display: flex;
 }
 .orders-items {
     display: flex;

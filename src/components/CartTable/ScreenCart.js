@@ -53,7 +53,7 @@ const ScreenCart = () => {
                                 <tr key={item}>
                                     <td><TiTimes className="del-icon" onClick={() => removeItem(item.id)} /></td>
                                     <td className="cart-image" ><img src={`${window.location.origin}/${item.image}`} className="cart-image" /></td>
-                                    <td className="prdt-name">{item.name}</td>
+                                    <td className="prdt-name">{item.p_name}</td>
                                     <td className="price">${item.oldPrice}/kg</td>
                                     <td className="dc-price">${item.discountPrice}/kg</td>
                                     <td className="add-del">

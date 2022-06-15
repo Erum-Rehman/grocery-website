@@ -36,7 +36,7 @@ const Product = () => {
                         {<div className="product-img">
                             <img src={`${window.location.origin}/${item.image}`} />
                         </div>}
-                        <h5 className="product-title">{item.name}</h5>
+                        <h5 className="product-title">{item.p_name}</h5>
                         <span className="old-price">${item.oldPrice}/kg</span>
                         <span className="new-price">${item.discountPrice}/kg</span>
                         <div className='product-rating'> <Rating /></div>

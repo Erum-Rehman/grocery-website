@@ -12,36 +12,55 @@ const Orders = () => {
     const dispatch = useDispatch();
     const location = useLocation();
 
-
-    // const { order: { shippingData, shippingData: { date, totalPrice, orderId, name, contact, address, city, code, quantity, products } } } = useSelector(state => state);
-    const {date, totalPrice, orderId, name, contact, address, city, code, quantity, products} = location.state;
+    const { date, totalPrice, orderId, name, contact, address, city, code, quantity, products, products: { p_name } } = location.state;
     return (
         <>
             <Background title="Order Details" />
             <div className="user_orders">
-                <h2 className="orders_head">ORDER DETAILS</h2>
-                <p>name: {name}</p>
-                <p>contact: {contact}</p>
-                <p>address: {address}</p>
-                <p>city: {city}</p>
-                <p>Post code: {code}</p>
-                <p>quantity: {quantity}</p>
-                <p>Order Date: {date}</p>
-                {
-                    products.map((item, index) => (
-                        <div key={item} className='orders-items'>
-                            <img src={`${window.location.origin}/${item.image}`} className="orders-image" />
-                            <div className='orders-name'>
-                                <h5 className="orders-title">{item.name}</h5>
-                                <div className='orders-item-count'>
-                                    <h3 className="order_count">Count: <span>{item.count}</span></h3>
-                                </div>
-                                <h3 className="orders_price">Price: <span >{item.totalPrice}</span></h3>
-                            </div>
+                <h2 className="orders_head">ORDER Receipt</h2>
+                <div className="order_bar">
+                    <div className="header_left">
+                        <p className="order_para">Tel: 0342-1429379</p>
+                        <p className="order_para">Defense Phase-II</p>
+                    </div>
+                    <div className="header_right">
+                        <p className="order_para">Order# {orderId}</p>
+                        <p className="order_para">Date:{date}</p>
+                    </div>
+                </div>
+                <div className="main_order_div">
+                    <div className="order_content">
+                        <div className="O_qty">
+                            <h4>Qty</h4>
+                            <p>{quantity}</p>
                         </div>
-                    ))
-                } 
-                <p className='orders_total'>Subtotal: <span className="span_total">${totalPrice}</span></p>
+                        <div className="footer-contact">
+                            <h4>Description</h4>
+                            {
+                                products.map((item, index) => (
+                                    <div key={item}>
+                                        <p >{item.p_name}</p>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                        <div className="footer-contact">
+                            <h4>Price</h4>
+                            <p>{totalPrice}</p>
+                        </div>
+                    </div>
+                    <div className="customer_details">
+                        <h5 style={{ marginBottom: '27px' }}>PICKUP</h5>
+                        <div className="customer_info">
+                            <p style={{ fontSize: '17px', fontWeight: '500' }}>Name: </p>
+                            <span style={{ fontSize: '17px', fontWeight: '500', color: '#adadad', paddingLeft: '4%' }}>{name}</span>
+                        </div>
+                        <div className="customer_info">
+                            <p style={{ fontSize: '17px', fontWeight: '500' }}>Phone No: </p>
+                            <span style={{ fontSize: '17px', fontWeight: '500', color: '#adadad', paddingLeft: '4%' }}>{contact}</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     )
