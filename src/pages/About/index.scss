@@ -144,9 +144,6 @@
     flex-wrap: wrap;
     width: 94%;
     margin-top: 30px;
-    @include respond-to(laptop) {
-        width: 88%;
-      }
 }
 .row-service {
     display: flex;
