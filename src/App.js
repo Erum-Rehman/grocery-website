@@ -122,6 +122,7 @@ function App(props) {
             <Route path="/MobileCart" element={<MobileCart />} />
             <Route path="/Category" element={<Category />} />
             <Route path="/orders" element={<Orders />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </div>
         <Footer />

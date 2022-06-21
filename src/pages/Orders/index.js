@@ -32,7 +32,7 @@ const Orders = () => {
                     <div className="order_content">
                         <div className="O_qty">
                             <h4>Qty</h4>
-                            <p>{quantity}</p>
+                            <p style={{color: '#adadad', marginTop: '27px', fontWeight: '500'}}>{quantity}</p>
                         </div>
                         <div className="footer-contact">
                             <h4>Description</h4>
@@ -50,7 +50,7 @@ const Orders = () => {
                         </div>
                     </div>
                     <div className="customer_details">
-                        <h5 style={{ marginBottom: '27px' }}>PICKUP</h5>
+                        <h5 style={{ marginBottom: '27px' }}>Customer</h5>
                         <div className="customer_info">
                             <p style={{ fontSize: '17px', fontWeight: '500' }}>Name: </p>
                             <span style={{ fontSize: '17px', fontWeight: '500', color: '#adadad', paddingLeft: '4%' }}>{name}</span>
