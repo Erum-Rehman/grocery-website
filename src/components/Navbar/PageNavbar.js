@@ -19,7 +19,8 @@ const PageNavbar = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [iscartBag, setIsCartBag] = useState(false)
     const navigate = useNavigate();
-    const { cart: { totalPrice, products, quantity }, userReducer: { user: { name } } } = useSelector(state => state);
+    const { cart: { totalPrice, products, quantity } } = useSelector(state => state);
+    const user = useSelector((state) => state.user.user);
 
     const handleDrawerClose = () => {
         setIsOpen(!isOpen)
@@ -49,9 +50,9 @@ const PageNavbar = () => {
                     </InputGroup>
                 </div>
                 <div className='icon-bar'>
-                    {!name ?
-                        <AiOutlineUser className="nav-icons" onClick={() => navigate("/login")} />
-                        : <FadeMenu MenuTitle={name} classname="pagenav" options={[{ name: "Log Out" }, { name: "Account", href_link: "/account" },{name:"Order", href_link: "/order"}]} />
+                    {user ?
+                         <FadeMenu MenuTitle={user.name} classname="pagenav" options={[{ name: "Log Out" }, { name: "Account", href_link: "/account" },{name:"Order", href_link: "/order"}]} />
+                        :<AiOutlineUser className="nav-icons" onClick={() => navigate("/login")} />
                     }
                     <MenuIcon className="nav-icons" onClick={handleDrawerClose} />
                     <div>

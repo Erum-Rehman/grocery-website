@@ -9,19 +9,22 @@ import Services from "../../components/Services";
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Products from '../Products';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Category from '../../components/Carousel';
 import axios from 'axios';
 
 const Home = () => {
     const navigate = useNavigate();
+    const location = useLocation();
 
     return (
         <>
             <div className="container-img">
                 <div className="img">
-                    <h1 className="shop">Bengal Vegetable Farm <br /> Organic 100%</h1>
+                    <h1 className="shop">Bengal Vegetable Farm 
+                    {/* {location.state.id} */}
+                    <br /> Organic 100%</h1>
                     <p className="p-img">Up to 50% off, Only This Week Don’t Miss !</p>
                     <div className="btn-div">
                         <button id="button-addon2" className="shop-homebutn" onClick={() => navigate("/product")}>

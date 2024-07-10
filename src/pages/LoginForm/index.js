@@ -23,7 +23,7 @@ const LoginForm = () => {
                     <button className="butn-field" onClick={() => navigate("/login")}>Login</button>
                 </div>
                 {location.pathname === "/register" ? <Register /> : <Login />}
-
+ 
             </div>
 
         </>

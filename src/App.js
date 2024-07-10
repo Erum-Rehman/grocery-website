@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './App.css';
-import { addOrder, deleteCart, saveCart, saveOrder, saveUser } from "./redux/Action";
+import { addOrder, deleteCart, saveCart, saveOrder } from "./redux/Action";
 import { useDispatch } from "react-redux";
 import Navbar from './components/Navbar';
 import Home from './pages/Home/Home';
@@ -32,6 +32,7 @@ import MobileCart from './components/CartTable/MobileCart';
 import ProtectedRoute from "./ProtectedRoute";
 import { onAuthStateChanged, auth, ref, db, onValue } from '../src/config/fire';
 import Orders from "./pages/Orders";
+import { loginUser } from "./redux/Action/user";
 
 function App(props) {
   const dispatch = useDispatch();
@@ -46,7 +47,7 @@ function App(props) {
             let userObj = snapshot.val();
             userObj.uid = user.uid;
             localStorage.setItem('isAuthenticated', true)
-            dispatch(saveUser(userObj))
+            dispatch(loginUser(userObj))
             const cartReference = ref(db, `/cart/${uid}`);
             onValue(cartReference, (snapshot) => {
               if (snapshot.exists()) {
@@ -91,9 +92,9 @@ function App(props) {
                   <Account />
                 </ProtectedRoute>
               }
-              // element={<Account/>}
+               element={<Account/>}
              />
-            {/* <Route path="/account" element={<Account />}></Route> */}
+             <Route path="/account" element={<Account />}></Route>
             <Route path="/logout" element={<Account />}></Route>
             <Route path="/profile" element={
                 <ProtectedRoute>
@@ -124,8 +125,8 @@ function App(props) {
             <Route path="/orders" element={<Orders />} />
             <Route path="/about" element={<About />} />
           </Routes>
-        </div>
-        <Footer />
+        </div> 
+        <Footer /> 
       </div>
     </>
   );

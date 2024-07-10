@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter> 
       <App />
     </BrowserRouter>
   </Provider>,

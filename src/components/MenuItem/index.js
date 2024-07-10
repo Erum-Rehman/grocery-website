@@ -6,7 +6,8 @@ import Fade from '@mui/material/Fade';
 import {useNavigate} from 'react-router-dom';
 import './index.scss';
 import { useDispatch } from 'react-redux';
-import { deleteCart, saveUser } from '../../redux/Action';
+import { loginUser } from '../../redux/Action/user';
+import { deleteCart } from '../../redux/Action';
 import { signOut, auth } from '../../config/fire';
 import { delOrder } from '../../redux/Action/order';
 
@@ -22,7 +23,7 @@ export default function FadeMenu({MenuTitle, options, onClick, href_link, classn
         if(item.href_link) navigate(item.href_link)
         else {
             signOut(auth).then(() => {
-                dispatch(saveUser({}))
+                dispatch(loginUser({}))
                 dispatch(deleteCart())
                 dispatch(delOrder())
                 localStorage.removeItem('isAuthenticated');

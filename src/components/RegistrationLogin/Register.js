@@ -34,6 +34,13 @@ const Registration = ({ registerUser }) => {
     const [password, setPassword] = useState("");
     const [ConfrmpasswordType, setConfrmpasswordType] = useState("password");
     const [confirmPassword, setconfirmPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [city, setCity] = useState("");
+    const [country, setCountry] = useState("");
+    const [address, setAddress] = useState("");
+    const [contact, setContact] = useState(0);
+    const [name, setName] = useState("");
+
     const handleChange = (evnt) => {
         setPassword(evnt.target.value);
         setconfirmPassword(evnt.target.value)
@@ -52,41 +59,68 @@ const Registration = ({ registerUser }) => {
         }
         setConfrmpasswordType("password")
     }
-    const handleRegistration = (data) => {
-        const body = {
-            email: data.email.toLowerCase(),
-            password: data.password,
-            name: data.name,
-            confirmPassword: data.confirmPassword,
-        }
-        console.log({ body })
+    // const handleRegistration = (data) => {
+    //     const body = {
+    //         email: data.email.toLowerCase(),
+    //         password: data.password,
+    //         name: data.name,
+    //         confirmPassword: data.confirmPassword,
+    //     }
+    //     console.log({ body })
 
-        // Register user
-        createUserWithEmailAndPassword(auth, body.email, body.password)
-            .then(res => {
-                const uid = res.user.uid;
-                const reference = ref(db, `/users/${uid}`);
-                set(reference, data).then(user => {
-                    console.log({ "done": user })
-                    navigate('/login')
-                })
-            })
-            .catch(err => console.log({ err }))
+    //     // Register user
+    //     createUserWithEmailAndPassword(auth, body.email, body.password)
+    //         .then(res => {
+    //             const uid = res.user.uid;
+    //             const reference = ref(db, `/users/${uid}`);
+    //             set(reference, data).then(user => {
+    //                 console.log({ "done": user })
+    //                 navigate('/login')
+    //             })
+    //         })
+    //         .catch(err => console.log({ err }))
+    // }
+
+    const handleRegistration = async (e) => {
+        e.preventDefault();
+        try {
+            const { data } = await axios.post("http://localhost:8000/api/v1/register",
+                { email, name, password, city, country, contact, address, confirmPassword },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    withCredentials: true,
+                }
+            );
+            console.log(data.message, 'data');
+            setName("");
+            setEmail("");
+            setPassword("");
+            setAddress("");
+            setContact("");
+            setCity("");
+            setCountry("");
+            setconfirmPassword("");
+        }
+        catch (err) {
+            toast.err(err.response.data.message, 'err')
+        }
     }
     return (
         <Formik
-            initialValues={{
-                name: "",
-                city: "",
-                contact: "",
-                address: "",
-                country: "",
-                password: "",
-                email: "",
-                confirmPassword: "",
-            }}
+            // initialValues={{
+            //     name: "",
+            //     city: "",
+            //     contact: "",
+            //     address: "",
+            //     country: "",
+            //     password: "",
+            //     email: "",
+            //     confirmPassword: "",
+            // }}
             validationSchema={RegistrationSchema}
-            onSubmit={values => handleRegistration(values)}
+        // onSubmit={values => handleRegistration(values)}
         >
             {({ values, errors, handleChange, handleSubmit, touched }) =>
                 <>
@@ -98,8 +132,10 @@ const Registration = ({ registerUser }) => {
                                 type="text" name="name"
                                 placeholder="Your first name"
                                 className="contact-field"
-                                value={values.name}
-                                onChange={handleChange}
+                                value={name}
+                                // Header={Header}
+                                // onChange={handleChange}
+                                onChange={(e) => setName(e.target.value)}
                             />
                         </div>
                         <div className="contact-cell">
@@ -108,8 +144,10 @@ const Registration = ({ registerUser }) => {
                                 type="email" name="email"
                                 placeholder="Enter your email"
                                 className="contact-field"
-                                value={values.email}
-                                onChange={handleChange}
+                                value={email}
+                                // Header={Header}
+                                // onChange={handleChange}
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                             {errors.email && touched.email ? <div>{errors.email}</div> : null}
                         </div>
@@ -119,8 +157,10 @@ const Registration = ({ registerUser }) => {
                                 type="Number" name="contact"
                                 placeholder="XX-"
                                 className="contact-field"
-                                value={values.contact}
-                                onChange={handleChange}
+                                value={contact}
+                                // Header={Header}
+                                // onChange={handleChange}
+                                onChange={(e) => setContact(e.target.value)}
                             />
                         </div>
                         <div className="contact-cell">
@@ -129,17 +169,21 @@ const Registration = ({ registerUser }) => {
                                 type="text" name="address"
                                 placeholder="enter your address"
                                 className="contact-field"
-                                value={values.address}
-                                onChange={handleChange}
+                                value={address}
+                                // Header={Header}
+                                // onChange={handleChange}
+                                onChange={(e) => setAddress(e.target.value)}
                             />
                         </div>
                         <div className="contact-cell">
                             <label>City *</label><br />
                             <select className="contact-field"
                                 name="city"
-                                value={values.city}
-                                onChange={handleChange}>
-                                <option className="dropdown">Town/City </option>
+                                value={city}
+                                // Header={Header}
+                                // onChange={handleChange}>
+                                onChange={(e) => setCity(e.target.value)} required>
+                                <option value="" className="dropdown">Town/City </option>
                                 <option value="Karachi" >Karachi </option>
                                 <option value="Lahore">Lahore</option>
                                 <option value="Islamabad">Islamabad</option>
@@ -150,10 +194,13 @@ const Registration = ({ registerUser }) => {
                             <label>Country *</label><br />
                             <select className="contact-field"
                                 name="country"
-                                value={values.country}
-                                onChange={handleChange}>
-                                <option value="Pakistan" className="dropdown">Country </option>
-                                <option value="India" >Pakistan </option>
+                                value={country}
+                                // Header={Header}
+                                // onChange={handleChange}>
+                                onChange={(e) => setCountry(e.target.value)}
+                                required>
+                                <option value="" className="dropdown">Select Country </option>
+                                <option value="Pakistan" >Pakistan </option>
                                 <option value="India" >India </option>
                                 <option value="America">America</option>
                                 <option value="London">London</option>
@@ -166,8 +213,10 @@ const Registration = ({ registerUser }) => {
                                 name="password"
                                 placeholder="***********"
                                 className="contact-field"
-                                value={values.password}
-                                onChange={handleChange}
+                                value={password}
+                                // Header={Header}
+                                // onChange={handleChange}
+                                onChange={(e) => setPassword(e.target.value)}
                             />
                             <button type="button" className="password-login" onClick={togglePassword}>
                                 {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
@@ -182,10 +231,12 @@ const Registration = ({ registerUser }) => {
                                 name="confirmPassword"
                                 placeholder="***********"
                                 className="contact-field"
-                                value={values.confirmPassword}
-                                onChange={handleChange}
+                                value={confirmPassword}
+                                // Header={Header}
+                                // onChange={handleChange}
+                                onChange={(e) => setconfirmPassword(e.target.value)}
                             />
-                             <button type="button" className="password-login" onClick={toggleConfrmPassword}>
+                            <button type="button" className="password-login" onClick={toggleConfrmPassword}>
                                 {ConfrmpasswordType === "password" ? <FiEyeOff /> : <FiEye />}
                             </button>
                         </div>
@@ -195,7 +246,7 @@ const Registration = ({ registerUser }) => {
                                 I agree to the Terms &amp; Policy</label>
 
                         </div>
-                        <ButnField title="CREATE AN ACCOUNT" type="submit"/>
+                        <ButnField title="CREATE AN ACCOUNT" type="submit" onClick={handleRegistration} />
                     </form>
                 </>
             }
